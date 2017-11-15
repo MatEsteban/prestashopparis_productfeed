@@ -22,7 +22,7 @@
 
     {if $input.type == 'urbit_additional_attributes'}
         <h2>
-            Additional attributes: <button type="button" class="attribute-add btn btn-primary btn-lg">Add</button>
+            Additional attributes: <button type="button" class="attribute-add btn btn-primary btn-lg">{l s='Add' mod='urbitproductfeed'}</button>
         </h2>
         {assign var=size value=$fields_value[$input.name]|@count + 1}
         <div class="row additional-attributes-table" data-last="{$size}">
@@ -30,7 +30,7 @@
                 <div class="well">
                     <div class="row">
                         <div class='block-select-attribute col-lg-2'>
-                            <label for="urbit-select-attribute">Name</label>
+                            <label for="urbit-select-attribute">{l s='Name' mod='urbitproductfeed'}</label>
                             <select class="additional-attributes-item__name" id='urbit-select-attribute'>
                                 {foreach $input.options.query AS $option}
                                     {if is_object($option)}
@@ -68,24 +68,24 @@
                             </select>
                         </div>
                         <div class='block-select-attribute_type col-lg-2 col-lg-offset-1'>
-                            <label for="urbit-select-type">Type</label>
+                            <label for="urbit-select-type">{l s='Type' mod='urbitproductfeed'}</label>
                             <select class="additional-attributes-item__type" id="urbit-select-type">
-                                <option value='string'>String</option>
-                                <option value='number'>Number</option>
-                                <option value='boolean'>Boolean</option>
-                                <option value='datetimerange'>Datetimerange</option>
-                                <option value='float'>Float</option>
-                                <option value='text'>Text</option>
-                                <option value='time'>Time</option>
-                                <option value='url'>URL</option>
+                                <option value='string'>{l s='String' mod='urbitproductfeed'}</option>
+                                <option value='number'>{l s='Number' mod='urbitproductfeed'}</option>
+                                <option value='boolean'>{l s='Boolean' mod='urbitproductfeed'}</option>
+                                <option value='datetimerange'>{l s='Datetimerange' mod='urbitproductfeed'}</option>
+                                <option value='float'>{l s='Float' mod='urbitproductfeed'}</option>
+                                <option value='text'>{l s='Text' mod='urbitproductfeed'}</option>
+                                <option value='time'>{l s='Time' mod='urbitproductfeed'}</option>
+                                <option value='url'>{l s='URL' mod='urbitproductfeed'}</option>
                             </select>
                         </div>
                         <div class='block-input-attribute_unit col-lg-2 col-lg-offset-1'>
-                            <label for="urbit-input-unit">Unit</label>
+                            <label for="urbit-input-unit">{l s='Unit' mod='urbitproductfeed'}</label>
                             <input type="text" class="additional-attributes-item__unit" id="urbit-input-unit">
                         </div>
                         <div class="form-group col-lg-3">
-                            <button type="button" class="btn btn-danger attribute-remove pull-right btn-lg">Remove</button>
+                            <button type="button" class="btn btn-danger attribute-remove pull-right btn-lg">{l s='Remove' mod='urbitproductfeed'}</button>
                         </div>
                     </div>
                 </div>
@@ -100,7 +100,7 @@
                     <div class="well">
                         <div class="row">
                             <div class='block-select-attribute col-lg-2'>
-                                <label for="urbit-select-attribute">Name</label>
+                                <label for="urbit-select-attribute">{l s='Name' mod='urbitproductfeed'}</label>
                                 <select name="{$input.name}{"["|cat:$i|cat:"]"}{"["|cat:$name|cat:"]"}"
                                         class="additional-attributes-item__name" id="urbit-select-attribute"
                                         value="{$value[$name]}">
@@ -124,7 +124,7 @@
                                 </select>
                             </div>
                             <div class='block-select-attribute_type col-lg-2 col-lg-offset-1'>
-                                <label for="urbit-select-type">Type</label>
+                                <label for="urbit-select-type">{l s='Type' mod='urbitproductfeed'}</label>
                                 <select name="{$input.name}{"["|cat:$i|cat:"]"}{"["|cat:$type|cat:"]"}"
                                         class="additional-attributes-item__type" id="urbit-select-type"
                                         value="{$value[$type]}">
@@ -138,13 +138,13 @@
                                 </select>
                             </div>
                             <div class='block-input-attribute_unit col-lg-2 col-lg-offset-1'>
-                                <label for="urbit-input-unit">Unit</label>
+                                <label for="urbit-input-unit">{l s='Unit' mod='urbitproductfeed'}</label>
                                 <input type="text" name="{$input.name}{"["|cat:$i|cat:"]"}{"["|cat:$unit|cat:"]"}"
                                        class="additional-attributes-item__unit" id="urbit-input-unit"
                                        value="{$value[$unit]}">
                             </div>
                             <div class="form-group col-lg-3">
-                                <button type="button" class="btn btn-danger attribute-remove pull-right btn-lg">Remove</button>
+                                <button type="button" class="btn btn-danger attribute-remove pull-right btn-lg">{l s='Remove' mod='urbitproductfeed'}</button>
                             </div>
                         </div>
                     </div>
