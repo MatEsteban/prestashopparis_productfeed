@@ -21,6 +21,7 @@
 *, a{
   font-size: 12px;
 }
+
 .bootstrap h6, .bootstrap .h6{
   font-size: 14px;
 }
@@ -35,7 +36,7 @@
       <li {if $active == 'intro'}class="active"{/if}><a href="#intro"
                                                         data-toggle="tab">{l s='Presentation' mod='urbitproductfeed'}</a></li>
       <li {if $active == 'account'}class="active"{/if}><a href="#account"
-                                                          data-toggle="tab">{l s='Module COnfiguration' mod='urbitproductfeed'}</a>
+                                                          data-toggle="tab">{l s='Module Configuration' mod='urbitproductfeed'}</a>
       </li>
     </ul>
   <div class="tab-content panel">

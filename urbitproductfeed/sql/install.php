@@ -14,8 +14,7 @@
  * @copyright 2015-2017 Urb-it SA
  * @license  http://www.gnu.org/licenses/
  */
-
-
+ 
 $sql = array(
     'CREATE TABLE IF NOT EXISTS `'._DB_PREFIX_.'urbitproductfeed` (
         `idproductfeed` int(11) NOT NULL AUTO_INCREMENT,

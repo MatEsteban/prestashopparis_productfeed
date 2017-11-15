@@ -14,8 +14,7 @@
  * @copyright 2015-2017 Urb-it SA
  * @license  http://www.gnu.org/licenses/
  */
-
-
+ 
 require_once dirname(__FILE__) . '/FieldAbstract.php';
 require_once dirname(__FILE__) . '/Factory.php';
 

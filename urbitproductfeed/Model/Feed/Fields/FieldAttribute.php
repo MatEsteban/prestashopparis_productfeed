@@ -14,7 +14,7 @@
  * @copyright 2015-2017 Urb-it SA
  * @license  http://www.gnu.org/licenses/
  */
-
+ 
 /**
  * Class UrbitProductfeedFieldsFieldAttribute
  */
