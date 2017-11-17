@@ -14,7 +14,7 @@
  * @copyright 2015-2017 Urb-it SA
  * @license  http://www.gnu.org/licenses/
  */
- 
+
 /**
  * Class FeedProduct
  */
@@ -490,16 +490,19 @@ class UrbitProductfeedFeedProduct
 
                 if (!empty($combinationImagesIds)) {
                     foreach ($combinationImagesIds as $combinationImagesId) {
-                        $additional_images[] = $this->context->link->getImageLink($linkRewrite[1],
+                        $additional_images[] = $this->context->link->getImageLink(
+                            $linkRewrite[1],
                             $combinationImagesId['id_image'],
-                            (version_compare(_PS_VERSION_, "1.7", "<")) ?
-                                ImageType::getFormatedName('large'):ImageType::getFormattedName('large') );
+                            (version_compare(_PS_VERSION_, "1.7", "<")) ? ImageType::getFormatedName('large'):ImageType::getFormattedName('large')
+                        );
                     }
                 } else { //if combination hasn't own image
                     $coverImageId = Product::getCover($product->id)['id_image'];
-                    $image = $this->context->link->getImageLink($linkRewrite[1], $coverImageId,
-                        (version_compare(_PS_VERSION_, "1.7", "<")) ?
-                            ImageType::getFormatedName('large'): ImageType::getFormattedName('large') );
+                    $image = $this->context->link->getImageLink(
+                        $linkRewrite[1],
+                        $coverImageId,
+                        (version_compare(_PS_VERSION_, "1.7", "<")) ? ImageType::getFormatedName('large'): ImageType::getFormattedName('large')
+                    );
                 }
             }
         } else {   //simple product
@@ -514,16 +517,20 @@ class UrbitProductfeedFeedProduct
                 }
                 $link = new Link;
 
-                $additional_image_link = 'http://' . $link->getImageLink($linkRewrite[1], $imageId,
-                        (version_compare(_PS_VERSION_, "1.7", "<")) ?
-                            ImageType::getFormatedName('large') : ImageType::getFormattedName('large'));
+                $additional_image_link = 'http://' . $link->getImageLink(
+                    $linkRewrite[1],
+                    $imageId,
+                    (version_compare(_PS_VERSION_, "1.7", "<")) ? ImageType::getFormatedName('large') : ImageType::getFormattedName('large')
+                );
                 $additional_images[] = $additional_image_link;
             }
 
             if ($coverImageId) {
-                $image = $this->context->link->getImageLink($linkRewrite[1], $coverImageId,
-                    (version_compare(_PS_VERSION_, "1.7", "<")) ?
-                        ImageType::getFormatedName('large'): ImageType::getFormatedName('large'));
+                $image = $this->context->link->getImageLink(
+                    $linkRewrite[1],
+                    $coverImageId,
+                    (version_compare(_PS_VERSION_, "1.7", "<")) ? ImageType::getFormatedName('large'): ImageType::getFormatedName('large')
+                );
             }
         }
 
