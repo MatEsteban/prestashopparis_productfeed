@@ -37,13 +37,20 @@ class UrbitProductfeedFeedModuleFrontController extends ModuleFrontController
         parent::initContent();
 
         header('Content-Type: application/json');
-        $this->setTemplate('module:urbitproductfeed/views/templates/front/feedtemp.tpl');
+
+        if (version_compare(_PS_VERSION_, "1.7", "<")) {
+            $this->setTemplate('feedtemp.tpl');
+        } else {
+            $this->setTemplate('module:urbit_productfeed/views/templates/front/feedtemp.tpl');
+        }
 
         if (Tools::getIsset(Tools::getValue(array('cron')))) {
             $this->generateByCron();
         } else {
             echo $this->getProductsJson();
         }
+
+        exit;
     }
 
     /**

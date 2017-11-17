@@ -122,7 +122,7 @@ class UrbitProductfeedFeed
             $this->process();
         }
 
-        $lang = $this->context->language->locale;
+        $lang = (version_compare(_PS_VERSION_, "1.7", "<")) ? $this->context->language->language_code : $this->context->language->locale;
         $version = $this->getFeedVersion();
 
         $feedArray = array(
