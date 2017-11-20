@@ -14,7 +14,7 @@
  * @copyright 2015-2017 Urb-it SA
  * @license  http://www.gnu.org/licenses/
  */
- 
+
 require_once dirname(__FILE__) . '/FieldAbstract.php';
 require_once dirname(__FILE__) . '/Factory.php';
 
@@ -199,8 +199,8 @@ class UrbitProductfeedFieldsFieldCalculated extends UrbitProductfeedFieldsFieldA
      * @param $feedProduct
      * @return null
      */
-    protected function getProductTaxRate($feedProduct)
-    {
+      protected function getProductTaxRate($feedProduct)
+      {
         $product = $feedProduct->getProduct();
 
         $taxCountry = Configuration::get('URBITPRODUCTFEED_TAX_COUNTRY');
@@ -217,7 +217,10 @@ class UrbitProductfeedFieldsFieldCalculated extends UrbitProductfeedFieldsFieldA
             }
         }
 
-        return $taxRate;
+        // IMS format price Urb-it
+        return $taxRate * 100;
+
+
     }
 
 
@@ -231,9 +234,10 @@ class UrbitProductfeedFieldsFieldCalculated extends UrbitProductfeedFieldsFieldA
         $useTax = $taxRate ? false : true;
 
         $price = Product::getPriceStatic($feedProduct->getProduct()->id, $useTax, ($feedProduct->getCombId() ? $feedProduct->getCombId() : null), 6, null, false, $useReduction);
-        $priceWithTax = ($taxRate) ? $price + ($price * ($taxRate / 100)) : $price;
+        $priceWithTax = ($taxRate) ? $price + ($price * ($taxRate / 10000)) : $price;
 
         return number_format($priceWithTax, 2, '.', '');
+
     }
 
     /**
