@@ -393,7 +393,7 @@ class UrbitProductfeedFeedProduct
             ''
         );
 
-        return ($taxRate) ? $price + ($price * ($taxRate / 10000)) : $price;
+        return ($taxRate) ? $price + ($price * ($taxRate / 100)) : $price;
     }
 
 

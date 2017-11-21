@@ -217,8 +217,7 @@ class UrbitProductfeedFieldsFieldCalculated extends UrbitProductfeedFieldsFieldA
             }
         }
 
-        // IMS format price Urb-it
-        return $taxRate * 100;
+        return $taxRate;
 
 
     }
@@ -234,7 +233,7 @@ class UrbitProductfeedFieldsFieldCalculated extends UrbitProductfeedFieldsFieldA
         $useTax = $taxRate ? false : true;
 
         $price = Product::getPriceStatic($feedProduct->getProduct()->id, $useTax, ($feedProduct->getCombId() ? $feedProduct->getCombId() : null), 6, null, false, $useReduction);
-        $priceWithTax = ($taxRate) ? $price + ($price * ($taxRate / 10000)) : $price;
+        $priceWithTax = ($taxRate) ? $price + ($price * ($taxRate / 100)) : $price;
 
         return number_format($priceWithTax, 2, '.', '');
 
