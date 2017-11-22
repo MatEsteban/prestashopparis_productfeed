@@ -2,7 +2,7 @@
 <module>
     <name>urbitproductfeed</name>
     <displayName><![CDATA[Urbit Product Feed]]></displayName>
-    <version><![CDATA[1.0.0]]></version>
+    <version><![CDATA[1.0.2]]></version>
     <description><![CDATA[Urbit Product Feed Module]]></description>
     <author><![CDATA[Urbit]]></author>
     <tab><![CDATA[administration]]></tab>

@@ -47,7 +47,7 @@ class UrbitProductfeed extends Module
     {
         $this->name = 'urbitproductfeed';
         $this->tab = 'administration';
-        $this->version = '1.0.1';
+        $this->version = '1.0.2';
         $this->author = 'Urbit';
         $this->module_key = 'a28ee08818efc46aecb78bc6ef2c9b3c';
         $this->need_instance = 1;
