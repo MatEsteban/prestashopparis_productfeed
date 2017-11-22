@@ -393,7 +393,7 @@ class UrbitProductfeedFeedProduct
             ''
         );
 
-        return ($taxRate) ? $price + ($price * ($taxRate / 100)) : $price;
+        return ($taxRate) ? $price + ($price * ($taxRate / 10000)) : $price;
     }
 
 
@@ -410,7 +410,7 @@ class UrbitProductfeedFeedProduct
         //regular price
         $prices[] = array(
             'currency' => $this->_processAttributeOrByKey('URBITPRODUCTFEED_REGULAR_PRICE_CURRENCY', 'calc_Currency'),
-            'value'    => $regularPrice,
+            'value' => (float)$regularPrice * 100,
             'vat'      => $this->_processAttributeOrByKey('URBITPRODUCTFEED_REGULAR_PRICE_VAT', 'calc_TaxRate'),
             'type'     => 'regular',
         );
@@ -419,7 +419,7 @@ class UrbitProductfeedFeedProduct
         if ($salePrice != $regularPrice) {
             $sPrice = array(
                 'currency' => $this->_processAttributeOrByKey('URBITPRODUCTFEED_SALE_PRICE_CURRENCY', 'calc_Currency'),
-                'value'    => $salePrice,
+                'value' => (float)$salePrice * 100,
                 'vat'      => $this->_processAttributeOrByKey('URBITPRODUCTFEED_SALE_PRICE_VAT', 'calc_TaxRate'),
                 'type'     => 'sale',
             );
@@ -694,6 +694,11 @@ class UrbitProductfeedFeedProduct
                         case 'UrbitProductfeedFieldsFieldFeature':
                             //get product features
                             $FrontFeatures = $product->getFrontFeatures($this->context->language->id);
+
+                            if (version_compare(_PS_VERSION_, "1.7", "<")) {
+                                $tempArr = array_unique(array_column($FrontFeatures, 'id_feature'));
+                                $FrontFeatures = array_intersect_key($FrontFeatures, $tempArr);
+                            }
 
                             if (!empty($FrontFeatures)) {
                                 foreach ($FrontFeatures as $frontFeature) {
