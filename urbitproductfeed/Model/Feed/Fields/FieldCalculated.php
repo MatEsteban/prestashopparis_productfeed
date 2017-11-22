@@ -199,11 +199,12 @@ class UrbitProductfeedFieldsFieldCalculated extends UrbitProductfeedFieldsFieldA
      * @param $feedProduct
      * @return null
      */
-      protected function getProductTaxRate($feedProduct)
-      {
+    protected function getProductTaxRate($feedProduct)
+    {
         $product = $feedProduct->getProduct();
 
         $taxCountry = Configuration::get('URBITPRODUCTFEED_TAX_COUNTRY');
+        $shopCountryId = $feedProduct->getContext()->country->id;
 
         $taxRate = null;
         $defaultCountryTax = null;
@@ -215,11 +216,14 @@ class UrbitProductfeedFieldsFieldCalculated extends UrbitProductfeedFieldsFieldA
             if ($rule['id_country'] == $taxCountry) {
                 $taxRate = $rule['rate'];
             }
+
+            if ($rule['id_country'] == $shopCountryId) {
+                $defaultCountryTax = $rule['rate'];
+            }
         }
 
-        return $taxRate;
-
-
+        //IMS format price Urb-it
+        return $taxRate ? $taxRate * 100 : ($defaultCountryTax ? $defaultCountryTax * 100 : 0);
     }
 
 
@@ -233,7 +237,7 @@ class UrbitProductfeedFieldsFieldCalculated extends UrbitProductfeedFieldsFieldA
         $useTax = $taxRate ? false : true;
 
         $price = Product::getPriceStatic($feedProduct->getProduct()->id, $useTax, ($feedProduct->getCombId() ? $feedProduct->getCombId() : null), 6, null, false, $useReduction);
-        $priceWithTax = ($taxRate) ? $price + ($price * ($taxRate / 100)) : $price;
+        $priceWithTax = ($taxRate) ? $price + ($price * ($taxRate / 10000)) : $price;
 
         return number_format($priceWithTax, 2, '.', '');
 
