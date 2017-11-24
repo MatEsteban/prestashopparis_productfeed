@@ -417,7 +417,6 @@ class UrbitProductfeed extends Module
                     'type'    => 'select',
                     'label'   => $this->l('Cache duration'),
                     'name'    => 'URBITPRODUCTFEED_CACHE_DURATION',
-                    // 'desc'    =>$this->l('The extension uses caching system to reduce a site load and speed up the plug-in during the generation of the feed, so feed is created and saved to file at specific time intervals. The refresh interval is specified on the Cache duration drop-down list'.),
                     'options' => array(
                         'query' => $optionsForCacheSelect,
                         'id'    => 'id',
@@ -443,8 +442,6 @@ class UrbitProductfeed extends Module
                     'label'    => $this->l('Categories'),
                     'name'     => 'URBITPRODUCTFEED_FILTER_CATEGORIES[]',
                     'multiple' => true,
-                    'desc' => $this->l('Filter by Categories using this multiselect lists where you can select several options (by using Ctrl+filter\'s name).
-                      If there is no selected filter parameter (categories or tags or the number of products for filtering is zero), the system skips the filtering by this parameter'),
                     'options'  => array(
                         'query' => $optionsForCategorySelect,
                         'id'    => 'id',
@@ -457,8 +454,6 @@ class UrbitProductfeed extends Module
                     'label'    => $this->l('Tags'),
                     'name'     => 'URBITPRODUCTFEED_TAGS_IDS[]',
                     'multiple' => true,
-                    'desc' => $this->l('Filter  by Tags using this multiselect lists where you can select several options (by using Ctrl+filter\'s name).
-                      If there is no selected filter parameter (categories or tags or the number of products for filtering is zero), the system skips the filtering by this parameter.'),
                     'options'  => array(
                         'query' => $optionsForTagSelect,
                         'id'    => 'id',
@@ -470,7 +465,6 @@ class UrbitProductfeed extends Module
                     'type'  => 'text',
                     'label' => $this->l('Minimal Stock'),
                     'name'  => 'URBITPRODUCTFEED_MINIMAL_STOCK',
-                    //'desc' => $this->l('Filter your product export by stock amount'),
                     'class' => 'fixed-width-xxl',
                 ),
             ),
@@ -507,14 +501,12 @@ class UrbitProductfeed extends Module
                         'id'    => 'id',
                         'name'  => 'name',
                     ),
-                    //'desc' => $this->l('Select your product Color field in the drop down menu'),
                     'class'   => 'fixed-width-xxl',
                 ),
                 array(
                     'type'    => 'select',
                     'label'   => $this->l('Size'),
                     'name'    => 'URBITPRODUCTFEED_ATTRIBUTE_SIZE',
-                    'desc'    => $this->l('Select your product Size field in the drop down menu'),
                     'options' => array(
                         'query' => $this->fields['factory']->getOptions(),
                         'id'    => 'id',
@@ -526,7 +518,6 @@ class UrbitProductfeed extends Module
                     'type'    => 'select',
                     'label'   => $this->l('Gender'),
                     'name'    => 'URBITPRODUCTFEED_ATTRIBUTE_GENDER',
-                    //'desc'    => $this->l('Select your product Gender field in the drop down menu'),
                     'options' => array(
                         'query' => $this->fields['factory']->getOptions(),
                         'id'    => 'id',
@@ -538,7 +529,6 @@ class UrbitProductfeed extends Module
                     'type'    => 'select',
                     'label'   => $this->l('Material'),
                     'name'    => 'URBITPRODUCTFEED_ATTRIBUTE_MATERIAL',
-                    //'desc'    => $this->l('Select your product Material field in the drop down menu'),
                     'options' => array(
                         'query' => $this->fields['factory']->getOptions(),
                         'id'    => 'id',
@@ -550,7 +540,6 @@ class UrbitProductfeed extends Module
                     'type'    => 'select',
                     'label'   => $this->l('Pattern'),
                     'name'    => 'URBITPRODUCTFEED_ATTRIBUTE_PATTERN',
-                    //'desc'    => $this->l('Select your product Pattern field in the drop down menu'),
                     'options' => array(
                         'query' => $this->fields['factory']->getOptions(),
                         'id'    => 'id',
@@ -562,7 +551,6 @@ class UrbitProductfeed extends Module
                     'type'    => 'select',
                     'label'   => $this->l('Age Group'),
                     'name'    => 'URBITPRODUCTFEED_ATTRIBUTE_AGE_GROUP',
-                    //'desc'    => $this->l('Select your product Age Group field in the drop down menu'),
                     'options' => array(
                         'query' => $this->fields['factory']->getOptions(),
                         'id'    => 'id',
@@ -574,7 +562,6 @@ class UrbitProductfeed extends Module
                     'type'    => 'select',
                     'label'   => $this->l('Condition'),
                     'name'    => 'URBITPRODUCTFEED_ATTRIBUTE_CONDITION',
-                    //'desc'    => $this->l('Select your product Condition field in the drop down menu'),
                     'options' => array(
                         'query' => $this->fields['factory']->getOptions(),
                         'id'    => 'id',
@@ -586,7 +573,6 @@ class UrbitProductfeed extends Module
                     'type'    => 'select',
                     'label'   => $this->l('Size Type'),
                     'name'    => 'URBITPRODUCTFEED_ATTRIBUTE_SIZE_TYPE',
-                    //'desc'    => $this->l('Select your product Size Type field in the drop down menu'),
                     'options' => array(
                         'query' => $this->fields['factory']->getOptions(),
                         'id'    => 'id',
@@ -598,7 +584,6 @@ class UrbitProductfeed extends Module
                     'type'    => 'select',
                     'label'   => $this->l('Brands'),
                     'name'    => 'URBITPRODUCTFEED_ATTRIBUTE_BRANDS',
-                    //'desc'    => $this->l('Select your product Brands field in the drop down menu'),
                     'options' => array(
                         'query' => $this->fields['factory']->getOptions(),
                         'id'    => 'id',
@@ -636,7 +621,6 @@ class UrbitProductfeed extends Module
                     'label'    => $this->l('Country'),
                     'name'     => 'URBITPRODUCTFEED_TAX_COUNTRY',
                     'multiple' => false,
-                    //'desc'     => $this->l('Select your Country in the drop down menu'),
                     'options'  => array(
                         'query' => $optionsForTaxes,
                         'id'    => 'id',
@@ -659,7 +643,6 @@ class UrbitProductfeed extends Module
                 array(
                     'type'    => 'urbit_additional_attributes',
                     'name'    => 'URBITPRODUCTFEED_ATTRIBUTE_ADDITIONAL_ATTRIBUTE_NEW',
-                    //'desc'    => $this->l('Create your Additional attributes'),
                     'options' => array(
                         'query' => $this->fields['factory']->getOptions(),
                         'id'    => 'id',
