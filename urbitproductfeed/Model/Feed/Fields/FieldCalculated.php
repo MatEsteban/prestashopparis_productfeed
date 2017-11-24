@@ -119,7 +119,8 @@ class UrbitProductfeedFieldsFieldCalculated extends UrbitProductfeedFieldsFieldA
      */
     protected function getProductDescription(UrbitProductfeedFeedProduct $feedProduct)
     {
-        return $feedProduct->getProduct()->description[Context::getContext()->language->id];
+       
+        return strip_tags($feedProduct->getProduct()->description[Context::getContext()->language->id]);
     }
 
     /**
