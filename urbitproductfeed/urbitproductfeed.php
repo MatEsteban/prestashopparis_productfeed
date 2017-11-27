@@ -476,7 +476,7 @@ class UrbitProductfeed extends Module
         //Product Dimentions
         $fields_form[2]['form'] = array(
             'legend' => array(
-                'title' => $this->l('Product Fields - Product Dimentions'),
+                'title' => $this->l('Product Fields - Product Dimensions'),
                 'icon'  => 'icon-cogs',
             ),
             'input'  => $this->fields['factory']->getInputs(),

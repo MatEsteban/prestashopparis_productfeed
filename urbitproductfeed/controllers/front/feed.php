@@ -14,7 +14,7 @@
  * @copyright 2015-2017 Urb-it SA
  * @license  http://www.gnu.org/licenses/
  */
- 
+
 include_once(_PS_MODULE_DIR_ . 'urbitproductfeed' . DIRECTORY_SEPARATOR . 'Helper' . DIRECTORY_SEPARATOR . 'FeedHelper.php');
 include_once(_PS_MODULE_DIR_ . 'urbitproductfeed' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'Feed.php');
 
@@ -41,7 +41,7 @@ class UrbitProductfeedFeedModuleFrontController extends ModuleFrontController
         if (version_compare(_PS_VERSION_, "1.7", "<")) {
             $this->setTemplate('feedtemp.tpl');
         } else {
-            $this->setTemplate('module:urbit_productfeed/views/templates/front/feedtemp.tpl');
+            $this->setTemplate('module:urbitproductfeed/views/templates/front/feedtemp.tpl');
         }
 
         if (Tools::getIsset(Tools::getValue(array('cron')))) {
