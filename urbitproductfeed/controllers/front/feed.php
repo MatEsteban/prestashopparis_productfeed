@@ -41,10 +41,10 @@ class UrbitProductfeedFeedModuleFrontController extends ModuleFrontController
         if (version_compare(_PS_VERSION_, "1.7", "<")) {
             $this->setTemplate('feedtemp.tpl');
         } else {
-            $this->setTemplate('module:urbitproductfeed/views/templates/front/feedtemp.tpl');
+            $this->setTemplate('module:urbit_productfeed/views/templates/front/feedtemp.tpl');
         }
 
-        if (Tools::getIsset(Tools::getValue(array('cron')))) {
+        if (Tools::getIsset(Tools::getValue(['cron']))) {
             $this->generateByCron();
         } else {
             echo $this->getProductsJson();
@@ -65,8 +65,20 @@ class UrbitProductfeedFeedModuleFrontController extends ModuleFrontController
             $context = Context::getContext();
             $categoryFilters = UrbitProductfeedFeed::getCategoryFilters();
             $tagFilters = UrbitProductfeedFeed::getTagsFilters();
+            $productsFilters = UrbitProductfeedFeed::getProductFilters();
 
-            $products = UrbitProductfeedFeed::getProductsFilteredByCategoriesAndTags($context->language->id, 0, 0, 'id_product', 'DESC', $categoryFilters, $tagFilters);
+            $products = UrbitProductfeedFeed::getFilteredProducts
+            (
+                $context->language->id,
+                0,
+                0,
+                'id_product',
+                'DESC',
+                $productsFilters,
+                $categoryFilters,
+                $tagFilters
+            );
+
             $uniqueProducts = array_unique($products, SORT_REGULAR);
             $feedHelper->generateFeed($uniqueProducts);
         }
@@ -85,8 +97,20 @@ class UrbitProductfeedFeedModuleFrontController extends ModuleFrontController
             $context = Context::getContext();
             $categoryFilters = UrbitProductfeedFeed::getCategoryFilters();
             $tagFilters = UrbitProductfeedFeed::getTagsFilters();
+            $productsFilters = UrbitProductfeedFeed::getProductFilters();
 
-            $products = UrbitProductfeedFeed::getProductsFilteredByCategoriesAndTags($context->language->id, 0, 0, 'id_product', 'DESC', $categoryFilters, $tagFilters);
+            $products = UrbitProductfeedFeed::getFilteredProducts
+            (
+                $context->language->id,
+                0,
+                0,
+                'id_product',
+                'DESC',
+                $productsFilters,
+                $categoryFilters,
+                $tagFilters
+            );
+
             $uniqueProducts = array_unique($products, SORT_REGULAR);
             $feedHelper->generateFeed($uniqueProducts);
         }

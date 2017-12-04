@@ -208,30 +208,42 @@ class UrbitProductfeedFeed
     }
 
     /**
-     * Get Product collection filtered by categories and tags
+     * Get product filter from config
+     * @return null
+     */
+    public static function getProductFilters()
+    {
+        $filterValue = Configuration::get('URBITPRODUCTFEED_FILTER_PRODUCT_ID', null);
+
+        return $filterValue ? : null;
+    }
+
+    /**
+     * Get Product collection filtered by config
      * @param $id_lang
      * @param $start
      * @param $limit
      * @param $order_by
      * @param $order_way
+     * @param bool $product_id
      * @param bool $categoriesArray
      * @param bool $tagsArray
      * @param bool $only_active
      * @param Context|null $context
      * @return array|false|mysqli_result|null|PDOStatement|resource
      */
-    public static function getProductsFilteredByCategoriesAndTags(
+    public static function getFilteredProducts(
         $id_lang,
         $start,
         $limit,
         $order_by,
         $order_way,
+        $product_id = false,
         $categoriesArray = false,
         $tagsArray = false,
         $only_active = false,
         Context $context = null
     ) {
-
         if (!$context) {
             $context = Context::getContext();
         }
@@ -268,6 +280,7 @@ class UrbitProductfeedFeed
             ($tagsArray ? 'LEFT JOIN `' . _DB_PREFIX_ . 'tag` t ON (pt.`id_tag` = t.`id_tag`)' : '') . '
 				WHERE pl.`id_lang` = ' . (int)$id_lang .
             ($categoriesArray ? ' AND c.`id_category` in (' . implode(',', $categoriesArray) . ')' : '') .
+            ($product_id ? " AND p.`id_product` = $product_id" : '') .
             ($tagsArray ? ' AND t.`name` in ("' . implode(',', $tagsArray) . '")' : '') .
             ($front ? ' AND product_shop.`visibility` IN ("both", "catalog")' : '') .
             ($only_active ? ' AND product_shop.`active` = 1' : '') . '
