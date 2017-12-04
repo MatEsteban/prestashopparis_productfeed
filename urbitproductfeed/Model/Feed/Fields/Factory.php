@@ -14,7 +14,7 @@
  * @copyright 2015-2017 Urb-it SA
  * @license  http://www.gnu.org/licenses/
  */
- 
+
 require_once dirname(__FILE__) . '/FieldAbstract.php';
 require_once dirname(__FILE__) . '/FieldAttribute.php';
 require_once dirname(__FILE__) . '/FieldFeature.php';
@@ -59,16 +59,16 @@ class UrbitProductfeedFieldsFactory
         'URBITPRODUCTFEED_PRICE_EFFECTIVE_DATE'   => 'Price effective date',
     );
 
-    protected $_inventoryListInputs = array(
-        'URBITPRODUCTFEED_SCHEMA'           => 'Schema',
-        'URBITPRODUCTFEED_CONTENT_LANGUAGE' => 'Content language',
-        'URBITPRODUCTFEED_CONTENT_TYPE'     => 'Content type',
-        'URBITPRODUCTFEED_CREATED_AT'       => 'Created at',
-        'URBITPRODUCTFEED_UPDATED_AT'       => 'Updated at',
-        'URBITPRODUCTFEED_TARGET_COUNTRY'   => 'Target countries (comma separated)',
-        'URBITPRODUCTFEED_VERSION'          => 'Version',
-        'URBITPRODUCTFEED_FEED_FORMAT'      => 'Feed format - encoding',
-    );
+    // protected $_inventoryListInputs = array(
+    //     'URBITPRODUCTFEED_SCHEMA'           => 'Schema',
+    //     'URBITPRODUCTFEED_CONTENT_LANGUAGE' => 'Content language',
+    //     'URBITPRODUCTFEED_CONTENT_TYPE'     => 'Content type',
+    //     'URBITPRODUCTFEED_CREATED_AT'       => 'Created at',
+    //     'URBITPRODUCTFEED_UPDATED_AT'       => 'Updated at',
+    //     'URBITPRODUCTFEED_TARGET_COUNTRY'   => 'Target countries (comma separated)',
+    //     'URBITPRODUCTFEED_VERSION'          => 'Version',
+    //     'URBITPRODUCTFEED_FEED_FORMAT'      => 'Feed format - encoding',
+    // );
 
     /**
      * @param $product
@@ -116,10 +116,10 @@ class UrbitProductfeedFieldsFactory
         return $this->_generateInputs($this->_priceInputs);
     }
 
-    public function getInventoryListInputs()
-    {
-        return $this->_generateTextInputs($this->_inventoryListInputs);
-    }
+    // public function getInventoryListInputs()
+    // {
+    //     return $this->_generateTextInputs($this->_inventoryListInputs);
+    // }
 
     /**
      * @param $name
@@ -158,19 +158,19 @@ class UrbitProductfeedFieldsFactory
         return $config;
     }
 
-    /**
-     * @return array
-     */
-    public function getInventoryListInputsConfig()
-    {
-        $config = array();
-
-        foreach ($this->_inventoryListInputs as $key => $name) {
-            $config[$key] = $this->getInputConfig($key);
-        }
-
-        return $config;
-    }
+    // /**
+    //  * @return array
+    //  */
+    // public function getInventoryListInputsConfig()
+    // {
+    //     $config = array();
+    //
+    //     foreach ($this->_inventoryListInputs as $key => $name) {
+    //         $config[$key] = $this->getInputConfig($key);
+    //     }
+    //
+    //     return $config;
+    // }
 
     /**
      * @return array
@@ -238,7 +238,9 @@ class UrbitProductfeedFieldsFactory
                     'name'  => 'name',
                 ),
                 'class'   => 'fixed-width-xxl',
+
             );
+
         }
 
         return $inputs;

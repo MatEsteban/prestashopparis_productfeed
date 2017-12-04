@@ -29,7 +29,7 @@ require_once dirname(__FILE__) . '/Helper/UrbitHelperForm.php';
 class UrbitProductfeed extends Module
 {
     const NAME = 'urbitproductfeed';
-
+    //public $url_config;
     /**
      * @var bool
      */
@@ -85,8 +85,8 @@ class UrbitProductfeed extends Module
         include(dirname(__FILE__) . '/sql/install.php');
 
         return parent::install()
-            && $this->registerHook('header')
-            && $this->registerHook('backOfficeHeader');
+            && $this->registerHook('header');
+
     }
 
     /**
@@ -109,16 +109,20 @@ class UrbitProductfeed extends Module
        /**
         * If values have been submitted in the form, process.
         */
+
         $output = '';
         $this->context->smarty->assign('active', 'intro');
-
         if (((bool)Tools::isSubmit('submitProductfeedModule')) == true) {
               $output = $this->postProcess();
               $this->context->smarty->assign('active', 'account');
         }
 
         $config = $this->renderForm();
-        $this->context->smarty->assign(array('config' => $config,));
+        $this->context->smarty->assign(
+          array(
+                'config' => $config,
+                'urbitproductfeed_img_path'  => $this->_path.'views/img/',
+                ));
 
         return  $output.$this->context->smarty->fetch($this->local_path.'views/templates/admin/configure.tpl');
     }
@@ -423,7 +427,9 @@ class UrbitProductfeed extends Module
                         'name'  => 'name',
                     ),
                     'class'   => 'fixed-width-xxl',
+                    'hint' => $this->l('The extension uses caching system to reduce a site load and speed up the plug-in during the generation of the feed, so feed is created and saved to file at specific time intervals. The refresh interval is specified on the  \'Cache duration \' drop-down list.'),
                 ),
+
             ),
             'submit' => array(
                 'title' => $this->l('Save'),
@@ -448,6 +454,8 @@ class UrbitProductfeed extends Module
                         'name'  => 'name',
                     ),
                     'class'    => 'fixed-width-xxl',
+                    'hint' => $this->l('Filter by Categories using this multiselect lists where you can select several options (by using Ctrl+filter\'s name).
+If there is no selected filter parameter (categories or tags or the number of products for filtering is zero), the system skips the filtering by this parameter.'),
                 ),
                 array(
                     'type'     => 'select',
@@ -460,12 +468,15 @@ class UrbitProductfeed extends Module
                         'name'  => 'name',
                     ),
                     'class'    => 'fixed-width-xxl',
+                    'hint' =>     $this->l('Filter by Tags using this multiselect lists where you can select several options (by using Ctrl+filter\'s name).
+                     If there is no selected filter parameter (categories or tags or the number of products for filtering is zero), the system skips the filtering by this parameter.'),
                 ),
                 array(
                     'type'  => 'text',
                     'label' => $this->l('Minimal Stock'),
                     'name'  => 'URBITPRODUCTFEED_MINIMAL_STOCK',
                     'class' => 'fixed-width-xxl',
+                    'hint' => $this->l('Filter your product export by stock amount'),
                 ),
             ),
             'submit' => array(
@@ -502,6 +513,7 @@ class UrbitProductfeed extends Module
                         'name'  => 'name',
                     ),
                     'class'   => 'fixed-width-xxl',
+                    'hint' => $this->l('Select your product Color field in the drop down menu'),
                 ),
                 array(
                     'type'    => 'select',
@@ -513,6 +525,7 @@ class UrbitProductfeed extends Module
                         'name'  => 'name',
                     ),
                     'class'   => 'fixed-width-xxl',
+                    'hint' => $this->l('Select your product Size field in the drop down menu'),
                 ),
                 array(
                     'type'    => 'select',
@@ -524,6 +537,7 @@ class UrbitProductfeed extends Module
                         'name'  => 'name',
                     ),
                     'class'   => 'fixed-width-xxl',
+                    'hint' => $this->l('Select your product Gender field in the drop down menu'),
                 ),
                 array(
                     'type'    => 'select',
@@ -535,6 +549,7 @@ class UrbitProductfeed extends Module
                         'name'  => 'name',
                     ),
                     'class'   => 'fixed-width-xxl',
+                    'hint' => $this->l('Select your product Material field in the drop down menu'),
                 ),
                 array(
                     'type'    => 'select',
@@ -546,6 +561,7 @@ class UrbitProductfeed extends Module
                         'name'  => 'name',
                     ),
                     'class'   => 'fixed-width-xxl',
+                    'hint' => $this->l('Select your product Pattern field in the drop down menu'),
                 ),
                 array(
                     'type'    => 'select',
@@ -557,6 +573,7 @@ class UrbitProductfeed extends Module
                         'name'  => 'name',
                     ),
                     'class'   => 'fixed-width-xxl',
+                    'hint' => $this->l('Select your product Age Group field in the drop down menu'),
                 ),
                 array(
                     'type'    => 'select',
@@ -568,6 +585,7 @@ class UrbitProductfeed extends Module
                         'name'  => 'name',
                     ),
                     'class'   => 'fixed-width-xxl',
+                    'hint' => $this->l('Select your product Condition field in the drop down menu'),
                 ),
                 array(
                     'type'    => 'select',
@@ -579,6 +597,7 @@ class UrbitProductfeed extends Module
                         'name'  => 'name',
                     ),
                     'class'   => 'fixed-width-xxl',
+                    'hint' => $this->l('Select your product Size Type field in the drop down menu'),
                 ),
                 array(
                     'type'    => 'select',
@@ -590,6 +609,7 @@ class UrbitProductfeed extends Module
                         'name'  => 'name',
                     ),
                     'class'   => 'fixed-width-xxl',
+                    'hint' => $this->l('Select your product Brands field in the drop down menu'),
                 ),
             ),
             'submit' => array(
@@ -627,6 +647,7 @@ class UrbitProductfeed extends Module
                         'name'  => 'name',
                     ),
                     'class'    => 'fixed-width-xxl',
+                    'hint' => $this->l('Select your Country in the drop down menu'),
                 ),
             ),
             'submit' => array(
@@ -649,6 +670,7 @@ class UrbitProductfeed extends Module
                         'name'  => 'name',
                     ),
                     'class'   => 'fixed-width-xxl',
+                    'hint' => $this->l('Create your Additional attributes'),
                 ),
             ),
             'submit' => array(
@@ -656,16 +678,16 @@ class UrbitProductfeed extends Module
             ),
         );
 
-        $fields_form[8]['form'] = array(
-            'legend' => array(
-                'title' => $this->l('Custom Inventory List'),
-                'icon'  => 'icon-cogs',
-            ),
-            'input'  => $this->fields['factory']->getInventoryListInputs(),
-            'submit' => array(
-                'title' => $this->l('Save'),
-            ),
-        );
+        // $fields_form[8]['form'] = array(
+        //     'legend' => array(
+        //         'title' => $this->l('Custom Inventory List'),
+        //         'icon'  => 'icon-cogs',
+        //     ),
+        //     'input'  => $this->fields['factory']->getInventoryListInputs(),
+        //     'submit' => array(
+        //         'title' => $this->l('Save'),
+        //     ),
+        // );
 
         return $fields_form;
     }
@@ -703,32 +725,41 @@ class UrbitProductfeed extends Module
             'URBITPRODUCTFEED_TAGS_IDS'                           => explode(',', Configuration::get('URBITPRODUCTFEED_TAGS_IDS', null)),
             ),
             $this->fields['factory']->getInputsConfig(),
-            $this->fields['factory']->getPriceInputsConfig(),
-            $this->fields['factory']->getInventoryListInputsConfig()
+            $this->fields['factory']->getPriceInputsConfig()
+            //$this->fields['factory']->getInventoryListInputsConfig()
         );
     }
+
 
     /**
      * Save form data.
      */
     protected function postProcess()
     {
-        $form_values = $this->getConfigFormValues();
+       $form_values = $this->getConfigFormValues();
         foreach (array_keys($form_values) as $key) {
-            if (in_array($key, array('URBITPRODUCTFEED_ATTRIBUTE_ADDITIONAL_ATTRIBUTE_NEW'))) {
+          if (in_array($key, array('URBITPRODUCTFEED_ATTRIBUTE_ADDITIONAL_ATTRIBUTE_NEW'))) {
                 $value = Tools::getValue($key) ?: null;
                 Configuration::updateValue($key, $value ? json_encode($value) : $value);
 
                 continue;
             }
-
             if (in_array($key, array('URBITPRODUCTFEED_ATTRIBUTE_ADDITIONAL_ATTRIBUTE', 'URBITPRODUCTFEED_TAGS_IDS', 'URBITPRODUCTFEED_FILTER_CATEGORIES'))) {
                 $value = Tools::getValue($key) ?: null;
                 Configuration::updateValue($key, $value ? implode(',', $value) : null);
             } else {
                 Configuration::updateValue($key, Tools::getValue($key));
             }
+
         }
+
+        if (Tools::getValue('URBITPRODUCTFEED_MINIMAL_STOCK') == null) {
+            $this->context->controller->errors[] = $this->l('Filter your product export by stock amount');
+        }
+
+        if (empty($this->context->controller->errors)){
+            return $this->displayConfirmation($this->l('Settings updated'));
+          }
     }
 
     /**

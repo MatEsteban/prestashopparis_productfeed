@@ -18,6 +18,8 @@
 *}
 
 <style>
+
+
 *, a{
   font-size: 12px;
 }
@@ -27,6 +29,9 @@
 }
 #intro > div.contact-btn.text-center > a > button{
   padding: 15px;
+}
+img{
+  width:100px;
 }
 </style>
 
@@ -47,7 +52,7 @@
            <div class="row urbit-theme-texticon__element">
           <div class="col col-sm-2 col-xs-12">
               <div class="image-wrapper">
-              <img src="https://urb-it.com/fr/wp-content/uploads/sites/4/2017/11/Play.jpg" id="play" width="100px">
+              <img src="{$urbitproductfeed_img_path|escape:'html':'utf-8'}Play.png" id="play">
           </div>
       </div>
     <div class="col col-sm-8 col-xs-12">
@@ -59,7 +64,7 @@
     <div class="row urbit-theme">
         <div class="col col-sm-2 col-xs-12">
             <div class="image-wrapper">
-            <img src="https://urb-it.com/fr/wp-content/uploads/sites/4/2017/11/Satisfaction.jpg" alt="satisfaction" width="100px">
+            <img src="{$urbitproductfeed_img_path|escape:'html':'utf-8'}Satisfaction.png">
         </div>
     </div>
     <div class="col col-sm-8 col-xs-12">
@@ -72,7 +77,8 @@
         <div class="col col-sm-2 col-xs-12">
           <br>
             <div class="image-wrapper">
-             <img src="https://urb-it.com/fr/wp-content/uploads/sites/4/2017/11/Rotation.jpg" alt="Rotation" width="90px">
+             <img src="{$urbitproductfeed_img_path|escape:'html':'utf-8'}Rotation.png">
+             {$dhl_img_path|escape:'htmlall':'UTF-8'}
             </div>
         </div>
         <br>
@@ -91,7 +97,7 @@
       <div class="row urbit-theme-circle__container">
         <div class="col col-sm-4 text-center urbit-theme-circle__element numerated">
         <div class="image image-small">
-          <img src="https://urb-it.com/fr/wp-content/uploads/sites/4/2017/10/Onboarding_1_500x500px_2-1.gif" alt="Un client achète un produit de votre boutique sur l’application, sur votre site e-commerce ou directement dans votre magasin." width="100px">
+          <img src="{$urbitproductfeed_img_path|escape:'html':'utf-8'}Onboarding_1.gif" alt="Un client achète un produit de votre boutique sur l’application, sur votre site e-commerce ou directement dans votre magasin.">
         </div>
         <div class="data">
           <span class="num">1</span>
@@ -101,7 +107,7 @@
     </div>
         <div class="col col-sm-4 text-center urbit-theme-circle__element numerated">
             <div class="image image-small">
-              <img src="https://urb-it.com/fr/wp-content/uploads/sites/4/2017/10/Onboarding_2_500x500px-3.gif" alt="Un Urber va chercher vos achats dans votre boutique." width="100px">
+              <img src="{$urbitproductfeed_img_path|escape:'html':'utf-8'}Onboarding_2.gif" alt="Un Urber va chercher vos achats dans votre boutique.">
           </div>
       <div class="data">
           <span class="num">2</span>
@@ -112,7 +118,7 @@
 
       <div class="col col-sm-4 text-center urbit-theme-circle__element numerated">
           <div class="image image-small">
-              <img src="https://urb-it.com/fr/wp-content/uploads/sites/4/2017/10/Onboarding_3_500x500px-2.gif" alt="Votre Urber apporte vos produits à vos clients exactement à l’heure et à l’endroit qu’ils ont choisi. " width="100px">
+              <img src="{$urbitproductfeed_img_path|escape:'html':'utf-8'}Onboarding_3.gif" alt="Votre Urber apporte vos produits à vos clients exactement à l’heure et à l’endroit qu’ils ont choisi. ">
               </div>
               <div class="data">
               <span class="num">3</span>
@@ -125,7 +131,7 @@
       </div>
       <br><br>
          <div class="contact-btn text-center">
-            <a href="https://urb-it.com/fr/contact-us/" target="_blank"><button type="button" class="btn btn-primary btn-lg">{l s='CONTACT US' mod='urbitproductfeed'}</button></a>
+            <a href="https://addons.prestashop.com/en/contact-us?id_product=29320" target="_blank"><button type="button" class="btn btn-primary btn-lg">{l s='CONTACT US' mod='urbitproductfeed'}</button></a>
         </div>
       </div>
         <div id="account" class="tab-pane {if $active == 'account'}active{/if}">
@@ -134,4 +140,6 @@
             {$config}
         </div>
     </div>
+  </div>
+  </div>
 </div>

@@ -1,10 +1,10 @@
 {
     "$schema": "https:\/\/raw.githubusercontent.com\/urbitassociates\/urbit-merchant-feeds\/master\/schemas\/products\/2017-06-28-1\/products.json",
-    "content_language": "en-US",
-    "attribute_language": "en-US",
+    "content_language": "fr-FR",
+    "attribute_language": "fr-FR",
     "content_type": "products",
     "target_country": [
-        "en-US"
+        "fr-FR"
     ],
     "version": "2017-06-28-1",
     "feed_format": {
@@ -16,18 +16,20 @@
     "entities": [
         {
             "id": "7-34",
-            "link": "http:\/\/presta-product.loc\/7-printed-chiffon-dress.html",
+            "name": "Robe en mousseline imprim\u00e9e S Jaune",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/7-robe-mousseline-imprimee.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 3895,
-                    "vat": 9000,
+                    "currency": "EUR",
+                    "value": 2460,
+                    "vat": "24.60",
                     "type": "regular"
                 },
                 {
-                    "currency": "USD",
-                    "value": 3116,
-                    "vat": 9000,
+                    "currency": "EUR",
+                    "value": 1968,
+                    "vat": "19.68",
                     "type": "sale"
                 }
             ],
@@ -39,7 +41,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -59,39 +61,29 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/20-large_default\/printed-chiffon-dress.jpg",
-                "http:\/\/presta-product.loc\/21-large_default\/printed-chiffon-dress.jpg"
+                "http:\/\/localhost:8888\/prestashop\/20-large_default\/robe-mousseline-imprimee.jpg",
+                "http:\/\/localhost:8888\/prestashop\/21-large_default\/robe-mousseline-imprimee.jpg"
             ],
             "item_group_id": "7",
-            "attributes": [
-                {
-                    "name": "Bonus",
-                    "type": "number",
-                    "unit": "RUB",
-                    "value": "200"
-                },
-                {
-                    "name": "DeliveryTime",
-                    "type": "number",
-                    "unit": "days",
-                    "value": "3"
-                }
-            ]
+            "color": "Jaune",
+            "size": "S"
         },
         {
             "id": "7-35",
-            "link": "http:\/\/presta-product.loc\/7-printed-chiffon-dress.html",
+            "name": "Robe en mousseline imprim\u00e9e M Jaune",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/7-robe-mousseline-imprimee.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 3895,
-                    "vat": 9000,
+                    "currency": "EUR",
+                    "value": 2460,
+                    "vat": "24.60",
                     "type": "regular"
                 },
                 {
-                    "currency": "USD",
-                    "value": 3116,
-                    "vat": 9000,
+                    "currency": "EUR",
+                    "value": 1968,
+                    "vat": "19.68",
                     "type": "sale"
                 }
             ],
@@ -103,7 +95,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -123,39 +115,29 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/20-large_default\/printed-chiffon-dress.jpg",
-                "http:\/\/presta-product.loc\/21-large_default\/printed-chiffon-dress.jpg"
+                "http:\/\/localhost:8888\/prestashop\/20-large_default\/robe-mousseline-imprimee.jpg",
+                "http:\/\/localhost:8888\/prestashop\/21-large_default\/robe-mousseline-imprimee.jpg"
             ],
             "item_group_id": "7",
-            "attributes": [
-                {
-                    "name": "Bonus",
-                    "type": "number",
-                    "unit": "RUB",
-                    "value": "200"
-                },
-                {
-                    "name": "DeliveryTime",
-                    "type": "number",
-                    "unit": "days",
-                    "value": "3"
-                }
-            ]
+            "color": "Jaune",
+            "size": "M"
         },
         {
             "id": "7-36",
-            "link": "http:\/\/presta-product.loc\/7-printed-chiffon-dress.html",
+            "name": "Robe en mousseline imprim\u00e9e L Jaune",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/7-robe-mousseline-imprimee.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 3895,
-                    "vat": 9000,
+                    "currency": "EUR",
+                    "value": 2460,
+                    "vat": "24.60",
                     "type": "regular"
                 },
                 {
-                    "currency": "USD",
-                    "value": 3116,
-                    "vat": 9000,
+                    "currency": "EUR",
+                    "value": 1968,
+                    "vat": "19.68",
                     "type": "sale"
                 }
             ],
@@ -167,7 +149,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -187,39 +169,29 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/20-large_default\/printed-chiffon-dress.jpg",
-                "http:\/\/presta-product.loc\/21-large_default\/printed-chiffon-dress.jpg"
+                "http:\/\/localhost:8888\/prestashop\/20-large_default\/robe-mousseline-imprimee.jpg",
+                "http:\/\/localhost:8888\/prestashop\/21-large_default\/robe-mousseline-imprimee.jpg"
             ],
             "item_group_id": "7",
-            "attributes": [
-                {
-                    "name": "Bonus",
-                    "type": "number",
-                    "unit": "RUB",
-                    "value": "200"
-                },
-                {
-                    "name": "DeliveryTime",
-                    "type": "number",
-                    "unit": "days",
-                    "value": "3"
-                }
-            ]
+            "color": "Jaune",
+            "size": "L"
         },
         {
             "id": "7-37",
-            "link": "http:\/\/presta-product.loc\/7-printed-chiffon-dress.html",
+            "name": "Robe en mousseline imprim\u00e9e S Vert",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/7-robe-mousseline-imprimee.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 3895,
-                    "vat": 9000,
+                    "currency": "EUR",
+                    "value": 2460,
+                    "vat": "24.60",
                     "type": "regular"
                 },
                 {
-                    "currency": "USD",
-                    "value": 3116,
-                    "vat": 9000,
+                    "currency": "EUR",
+                    "value": 1968,
+                    "vat": "19.68",
                     "type": "sale"
                 }
             ],
@@ -231,7 +203,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -251,39 +223,29 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/22-large_default\/printed-chiffon-dress.jpg",
-                "http:\/\/presta-product.loc\/23-large_default\/printed-chiffon-dress.jpg"
+                "http:\/\/localhost:8888\/prestashop\/22-large_default\/robe-mousseline-imprimee.jpg",
+                "http:\/\/localhost:8888\/prestashop\/23-large_default\/robe-mousseline-imprimee.jpg"
             ],
             "item_group_id": "7",
-            "attributes": [
-                {
-                    "name": "Bonus",
-                    "type": "number",
-                    "unit": "RUB",
-                    "value": "200"
-                },
-                {
-                    "name": "DeliveryTime",
-                    "type": "number",
-                    "unit": "days",
-                    "value": "3"
-                }
-            ]
+            "color": "Vert",
+            "size": "S"
         },
         {
             "id": "7-38",
-            "link": "http:\/\/presta-product.loc\/7-printed-chiffon-dress.html",
+            "name": "Robe en mousseline imprim\u00e9e M Vert",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/7-robe-mousseline-imprimee.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 3895,
-                    "vat": 9000,
+                    "currency": "EUR",
+                    "value": 2460,
+                    "vat": "24.60",
                     "type": "regular"
                 },
                 {
-                    "currency": "USD",
-                    "value": 3116,
-                    "vat": 9000,
+                    "currency": "EUR",
+                    "value": 1968,
+                    "vat": "19.68",
                     "type": "sale"
                 }
             ],
@@ -295,7 +257,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -315,39 +277,29 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/22-large_default\/printed-chiffon-dress.jpg",
-                "http:\/\/presta-product.loc\/23-large_default\/printed-chiffon-dress.jpg"
+                "http:\/\/localhost:8888\/prestashop\/22-large_default\/robe-mousseline-imprimee.jpg",
+                "http:\/\/localhost:8888\/prestashop\/23-large_default\/robe-mousseline-imprimee.jpg"
             ],
             "item_group_id": "7",
-            "attributes": [
-                {
-                    "name": "Bonus",
-                    "type": "number",
-                    "unit": "RUB",
-                    "value": "200"
-                },
-                {
-                    "name": "DeliveryTime",
-                    "type": "number",
-                    "unit": "days",
-                    "value": "3"
-                }
-            ]
+            "color": "Vert",
+            "size": "M"
         },
         {
             "id": "7-39",
-            "link": "http:\/\/presta-product.loc\/7-printed-chiffon-dress.html",
+            "name": "Robe en mousseline imprim\u00e9e L Vert",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/7-robe-mousseline-imprimee.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 3895,
-                    "vat": 9000,
+                    "currency": "EUR",
+                    "value": 2460,
+                    "vat": "24.60",
                     "type": "regular"
                 },
                 {
-                    "currency": "USD",
-                    "value": 3116,
-                    "vat": 9000,
+                    "currency": "EUR",
+                    "value": 1968,
+                    "vat": "19.68",
                     "type": "sale"
                 }
             ],
@@ -359,7 +311,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -379,33 +331,23 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/22-large_default\/printed-chiffon-dress.jpg",
-                "http:\/\/presta-product.loc\/23-large_default\/printed-chiffon-dress.jpg"
+                "http:\/\/localhost:8888\/prestashop\/22-large_default\/robe-mousseline-imprimee.jpg",
+                "http:\/\/localhost:8888\/prestashop\/23-large_default\/robe-mousseline-imprimee.jpg"
             ],
             "item_group_id": "7",
-            "attributes": [
-                {
-                    "name": "Bonus",
-                    "type": "number",
-                    "unit": "RUB",
-                    "value": "200"
-                },
-                {
-                    "name": "DeliveryTime",
-                    "type": "number",
-                    "unit": "days",
-                    "value": "3"
-                }
-            ]
+            "color": "Vert",
+            "size": "L"
         },
         {
             "id": "6-31",
-            "link": "http:\/\/presta-product.loc\/6-printed-summer-dress.html",
+            "name": "Robe d'\u00e9t\u00e9 imprim\u00e9e S Jaune",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/6-robe-ete-imprimee.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 5795,
-                    "vat": 9000,
+                    "currency": "EUR",
+                    "value": 3660,
+                    "vat": "36.60",
                     "type": "regular"
                 }
             ],
@@ -417,7 +359,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -437,19 +379,23 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/16-large_default\/printed-summer-dress.jpg",
-                "http:\/\/presta-product.loc\/17-large_default\/printed-summer-dress.jpg"
+                "http:\/\/localhost:8888\/prestashop\/16-large_default\/robe-ete-imprimee.jpg",
+                "http:\/\/localhost:8888\/prestashop\/17-large_default\/robe-ete-imprimee.jpg"
             ],
-            "item_group_id": "6"
+            "item_group_id": "6",
+            "color": "Jaune",
+            "size": "S"
         },
         {
             "id": "6-32",
-            "link": "http:\/\/presta-product.loc\/6-printed-summer-dress.html",
+            "name": "Robe d'\u00e9t\u00e9 imprim\u00e9e M Jaune",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/6-robe-ete-imprimee.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 5795,
-                    "vat": 9000,
+                    "currency": "EUR",
+                    "value": 3660,
+                    "vat": "36.60",
                     "type": "regular"
                 }
             ],
@@ -461,7 +407,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -481,19 +427,23 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/16-large_default\/printed-summer-dress.jpg",
-                "http:\/\/presta-product.loc\/17-large_default\/printed-summer-dress.jpg"
+                "http:\/\/localhost:8888\/prestashop\/16-large_default\/robe-ete-imprimee.jpg",
+                "http:\/\/localhost:8888\/prestashop\/17-large_default\/robe-ete-imprimee.jpg"
             ],
-            "item_group_id": "6"
+            "item_group_id": "6",
+            "color": "Jaune",
+            "size": "M"
         },
         {
             "id": "6-33",
-            "link": "http:\/\/presta-product.loc\/6-printed-summer-dress.html",
+            "name": "Robe d'\u00e9t\u00e9 imprim\u00e9e L Jaune",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/6-robe-ete-imprimee.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 5795,
-                    "vat": 9000,
+                    "currency": "EUR",
+                    "value": 3660,
+                    "vat": "36.60",
                     "type": "regular"
                 }
             ],
@@ -505,7 +455,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -525,25 +475,29 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/16-large_default\/printed-summer-dress.jpg",
-                "http:\/\/presta-product.loc\/17-large_default\/printed-summer-dress.jpg"
+                "http:\/\/localhost:8888\/prestashop\/16-large_default\/robe-ete-imprimee.jpg",
+                "http:\/\/localhost:8888\/prestashop\/17-large_default\/robe-ete-imprimee.jpg"
             ],
-            "item_group_id": "6"
+            "item_group_id": "6",
+            "color": "Jaune",
+            "size": "L"
         },
         {
             "id": "5-19",
-            "link": "http:\/\/presta-product.loc\/5-printed-summer-dress.html",
+            "name": "Robe d'\u00e9t\u00e9 imprim\u00e9e S Jaune",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/5-robe-ete-imprimee.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 3172,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3660,
+                    "vat": "36.60",
                     "type": "regular"
                 },
                 {
-                    "currency": "USD",
-                    "value": 3013,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3477,
+                    "vat": "34.77",
                     "type": "sale"
                 }
             ],
@@ -555,7 +509,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -575,24 +529,28 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/12-large_default\/printed-summer-dress.jpg"
+                "http:\/\/localhost:8888\/prestashop\/12-large_default\/robe-ete-imprimee.jpg"
             ],
-            "item_group_id": "5"
+            "item_group_id": "5",
+            "color": "Jaune",
+            "size": "S"
         },
         {
             "id": "5-20",
-            "link": "http:\/\/presta-product.loc\/5-printed-summer-dress.html",
+            "name": "Robe d'\u00e9t\u00e9 imprim\u00e9e S Bleu",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/5-robe-ete-imprimee.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 3172,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3660,
+                    "vat": "36.60",
                     "type": "regular"
                 },
                 {
-                    "currency": "USD",
-                    "value": 3013,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3477,
+                    "vat": "34.77",
                     "type": "sale"
                 }
             ],
@@ -604,7 +562,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -624,24 +582,28 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/13-large_default\/printed-summer-dress.jpg"
+                "http:\/\/localhost:8888\/prestashop\/13-large_default\/robe-ete-imprimee.jpg"
             ],
-            "item_group_id": "5"
+            "item_group_id": "5",
+            "color": "Bleu",
+            "size": "S"
         },
         {
             "id": "5-21",
-            "link": "http:\/\/presta-product.loc\/5-printed-summer-dress.html",
+            "name": "Robe d'\u00e9t\u00e9 imprim\u00e9e S Orange",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/5-robe-ete-imprimee.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 3172,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3660,
+                    "vat": "36.60",
                     "type": "regular"
                 },
                 {
-                    "currency": "USD",
-                    "value": 3013,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3477,
+                    "vat": "34.77",
                     "type": "sale"
                 }
             ],
@@ -653,7 +615,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -673,24 +635,28 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/14-large_default\/printed-summer-dress.jpg"
+                "http:\/\/localhost:8888\/prestashop\/14-large_default\/robe-ete-imprimee.jpg"
             ],
-            "item_group_id": "5"
+            "item_group_id": "5",
+            "color": "Orange",
+            "size": "S"
         },
         {
             "id": "5-22",
-            "link": "http:\/\/presta-product.loc\/5-printed-summer-dress.html",
+            "name": "Robe d'\u00e9t\u00e9 imprim\u00e9e S Noir",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/5-robe-ete-imprimee.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 3172,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3660,
+                    "vat": "36.60",
                     "type": "regular"
                 },
                 {
-                    "currency": "USD",
-                    "value": 3013,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3477,
+                    "vat": "34.77",
                     "type": "sale"
                 }
             ],
@@ -702,7 +668,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -722,24 +688,28 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/15-large_default\/printed-summer-dress.jpg"
+                "http:\/\/localhost:8888\/prestashop\/15-large_default\/robe-ete-imprimee.jpg"
             ],
-            "item_group_id": "5"
+            "item_group_id": "5",
+            "color": "Noir",
+            "size": "S"
         },
         {
             "id": "5-23",
-            "link": "http:\/\/presta-product.loc\/5-printed-summer-dress.html",
+            "name": "Robe d'\u00e9t\u00e9 imprim\u00e9e M Jaune",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/5-robe-ete-imprimee.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 3172,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3660,
+                    "vat": "36.60",
                     "type": "regular"
                 },
                 {
-                    "currency": "USD",
-                    "value": 3013,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3477,
+                    "vat": "34.77",
                     "type": "sale"
                 }
             ],
@@ -751,7 +721,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -771,24 +741,28 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/12-large_default\/printed-summer-dress.jpg"
+                "http:\/\/localhost:8888\/prestashop\/12-large_default\/robe-ete-imprimee.jpg"
             ],
-            "item_group_id": "5"
+            "item_group_id": "5",
+            "color": "Jaune",
+            "size": "M"
         },
         {
             "id": "5-24",
-            "link": "http:\/\/presta-product.loc\/5-printed-summer-dress.html",
+            "name": "Robe d'\u00e9t\u00e9 imprim\u00e9e M Bleu",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/5-robe-ete-imprimee.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 3172,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3660,
+                    "vat": "36.60",
                     "type": "regular"
                 },
                 {
-                    "currency": "USD",
-                    "value": 3013,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3477,
+                    "vat": "34.77",
                     "type": "sale"
                 }
             ],
@@ -800,7 +774,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -820,24 +794,28 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/13-large_default\/printed-summer-dress.jpg"
+                "http:\/\/localhost:8888\/prestashop\/13-large_default\/robe-ete-imprimee.jpg"
             ],
-            "item_group_id": "5"
+            "item_group_id": "5",
+            "color": "Bleu",
+            "size": "M"
         },
         {
             "id": "5-25",
-            "link": "http:\/\/presta-product.loc\/5-printed-summer-dress.html",
+            "name": "Robe d'\u00e9t\u00e9 imprim\u00e9e M Orange",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/5-robe-ete-imprimee.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 3172,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3660,
+                    "vat": "36.60",
                     "type": "regular"
                 },
                 {
-                    "currency": "USD",
-                    "value": 3013,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3477,
+                    "vat": "34.77",
                     "type": "sale"
                 }
             ],
@@ -849,7 +827,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -869,24 +847,28 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/14-large_default\/printed-summer-dress.jpg"
+                "http:\/\/localhost:8888\/prestashop\/14-large_default\/robe-ete-imprimee.jpg"
             ],
-            "item_group_id": "5"
+            "item_group_id": "5",
+            "color": "Orange",
+            "size": "M"
         },
         {
             "id": "5-26",
-            "link": "http:\/\/presta-product.loc\/5-printed-summer-dress.html",
+            "name": "Robe d'\u00e9t\u00e9 imprim\u00e9e M Noir",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/5-robe-ete-imprimee.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 3172,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3660,
+                    "vat": "36.60",
                     "type": "regular"
                 },
                 {
-                    "currency": "USD",
-                    "value": 3013,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3477,
+                    "vat": "34.77",
                     "type": "sale"
                 }
             ],
@@ -898,7 +880,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -918,24 +900,28 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/15-large_default\/printed-summer-dress.jpg"
+                "http:\/\/localhost:8888\/prestashop\/15-large_default\/robe-ete-imprimee.jpg"
             ],
-            "item_group_id": "5"
+            "item_group_id": "5",
+            "color": "Noir",
+            "size": "M"
         },
         {
             "id": "5-27",
-            "link": "http:\/\/presta-product.loc\/5-printed-summer-dress.html",
+            "name": "Robe d'\u00e9t\u00e9 imprim\u00e9e L Jaune",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/5-robe-ete-imprimee.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 3172,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3660,
+                    "vat": "36.60",
                     "type": "regular"
                 },
                 {
-                    "currency": "USD",
-                    "value": 3013,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3477,
+                    "vat": "34.77",
                     "type": "sale"
                 }
             ],
@@ -947,7 +933,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -967,24 +953,28 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/12-large_default\/printed-summer-dress.jpg"
+                "http:\/\/localhost:8888\/prestashop\/12-large_default\/robe-ete-imprimee.jpg"
             ],
-            "item_group_id": "5"
+            "item_group_id": "5",
+            "color": "Jaune",
+            "size": "L"
         },
         {
             "id": "5-28",
-            "link": "http:\/\/presta-product.loc\/5-printed-summer-dress.html",
+            "name": "Robe d'\u00e9t\u00e9 imprim\u00e9e L Bleu",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/5-robe-ete-imprimee.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 3172,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3660,
+                    "vat": "36.60",
                     "type": "regular"
                 },
                 {
-                    "currency": "USD",
-                    "value": 3013,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3477,
+                    "vat": "34.77",
                     "type": "sale"
                 }
             ],
@@ -996,7 +986,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -1016,24 +1006,28 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/13-large_default\/printed-summer-dress.jpg"
+                "http:\/\/localhost:8888\/prestashop\/13-large_default\/robe-ete-imprimee.jpg"
             ],
-            "item_group_id": "5"
+            "item_group_id": "5",
+            "color": "Bleu",
+            "size": "L"
         },
         {
             "id": "5-29",
-            "link": "http:\/\/presta-product.loc\/5-printed-summer-dress.html",
+            "name": "Robe d'\u00e9t\u00e9 imprim\u00e9e L Orange",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/5-robe-ete-imprimee.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 3172,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3660,
+                    "vat": "36.60",
                     "type": "regular"
                 },
                 {
-                    "currency": "USD",
-                    "value": 3013,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3477,
+                    "vat": "34.77",
                     "type": "sale"
                 }
             ],
@@ -1045,7 +1039,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -1065,24 +1059,28 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/14-large_default\/printed-summer-dress.jpg"
+                "http:\/\/localhost:8888\/prestashop\/14-large_default\/robe-ete-imprimee.jpg"
             ],
-            "item_group_id": "5"
+            "item_group_id": "5",
+            "color": "Orange",
+            "size": "L"
         },
         {
             "id": "5-30",
-            "link": "http:\/\/presta-product.loc\/5-printed-summer-dress.html",
+            "name": "Robe d'\u00e9t\u00e9 imprim\u00e9e L Noir",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/5-robe-ete-imprimee.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 3172,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3660,
+                    "vat": "36.60",
                     "type": "regular"
                 },
                 {
-                    "currency": "USD",
-                    "value": 3013,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3477,
+                    "vat": "34.77",
                     "type": "sale"
                 }
             ],
@@ -1094,7 +1092,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -1114,18 +1112,22 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/15-large_default\/printed-summer-dress.jpg"
+                "http:\/\/localhost:8888\/prestashop\/15-large_default\/robe-ete-imprimee.jpg"
             ],
-            "item_group_id": "5"
+            "item_group_id": "5",
+            "color": "Noir",
+            "size": "L"
         },
         {
             "id": "4-16",
-            "link": "http:\/\/presta-product.loc\/4-printed-dress.html",
+            "name": "Robe imprim\u00e9e S Beige",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/4-robe-imprimee.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 5303,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 6119,
+                    "vat": "61.19",
                     "type": "regular"
                 }
             ],
@@ -1137,7 +1139,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -1157,18 +1159,22 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/10-large_default\/printed-dress.jpg"
+                "http:\/\/localhost:8888\/prestashop\/10-large_default\/robe-imprimee.jpg"
             ],
-            "item_group_id": "4"
+            "item_group_id": "4",
+            "color": "Beige",
+            "size": "S"
         },
         {
             "id": "4-17",
-            "link": "http:\/\/presta-product.loc\/4-printed-dress.html",
+            "name": "Robe imprim\u00e9e M Beige",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/4-robe-imprimee.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 5303,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 6119,
+                    "vat": "61.19",
                     "type": "regular"
                 }
             ],
@@ -1180,7 +1186,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -1200,18 +1206,22 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/10-large_default\/printed-dress.jpg"
+                "http:\/\/localhost:8888\/prestashop\/10-large_default\/robe-imprimee.jpg"
             ],
-            "item_group_id": "4"
+            "item_group_id": "4",
+            "color": "Beige",
+            "size": "M"
         },
         {
             "id": "4-18",
-            "link": "http:\/\/presta-product.loc\/4-printed-dress.html",
+            "name": "Robe imprim\u00e9e L Beige",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/4-robe-imprimee.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 5303,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 6119,
+                    "vat": "61.19",
                     "type": "regular"
                 }
             ],
@@ -1223,7 +1233,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -1243,18 +1253,22 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/10-large_default\/printed-dress.jpg"
+                "http:\/\/localhost:8888\/prestashop\/10-large_default\/robe-imprimee.jpg"
             ],
-            "item_group_id": "4"
+            "item_group_id": "4",
+            "color": "Beige",
+            "size": "L"
         },
         {
             "id": "3-13",
-            "link": "http:\/\/presta-product.loc\/3-printed-dress.html",
+            "name": "Robe imprim\u00e9e S Orange",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/3-robe-imprimee.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 2703,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3119,
+                    "vat": "31.19",
                     "type": "regular"
                 }
             ],
@@ -1266,7 +1280,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -1285,16 +1299,20 @@
                     "parentId": "8"
                 }
             ],
-            "item_group_id": "3"
+            "item_group_id": "3",
+            "color": "Orange",
+            "size": "S"
         },
         {
             "id": "3-14",
-            "link": "http:\/\/presta-product.loc\/3-printed-dress.html",
+            "name": "Robe imprim\u00e9e M Orange",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/3-robe-imprimee.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 2703,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3119,
+                    "vat": "31.19",
                     "type": "regular"
                 }
             ],
@@ -1306,7 +1324,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -1325,16 +1343,20 @@
                     "parentId": "8"
                 }
             ],
-            "item_group_id": "3"
+            "item_group_id": "3",
+            "color": "Orange",
+            "size": "M"
         },
         {
             "id": "3-15",
-            "link": "http:\/\/presta-product.loc\/3-printed-dress.html",
+            "name": "Robe imprim\u00e9e L Orange",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/3-robe-imprimee.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 2703,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3119,
+                    "vat": "31.19",
                     "type": "regular"
                 }
             ],
@@ -1346,7 +1368,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -1365,16 +1387,20 @@
                     "parentId": "8"
                 }
             ],
-            "item_group_id": "3"
+            "item_group_id": "3",
+            "color": "Orange",
+            "size": "L"
         },
         {
             "id": "2-7",
-            "link": "http:\/\/presta-product.loc\/2-blouse.html",
+            "name": "Chemisier S Noir",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/2-chemisier.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 2807,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3239,
+                    "vat": "32.39",
                     "type": "regular"
                 }
             ],
@@ -1386,7 +1412,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -1406,18 +1432,22 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/7-large_default\/blouse.jpg"
+                "http:\/\/localhost:8888\/prestashop\/7-large_default\/chemisier.jpg"
             ],
-            "item_group_id": "2"
+            "item_group_id": "2",
+            "color": "Noir",
+            "size": "S"
         },
         {
             "id": "2-8",
-            "link": "http:\/\/presta-product.loc\/2-blouse.html",
+            "name": "Chemisier S Blanc",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/2-chemisier.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 2807,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3239,
+                    "vat": "32.39",
                     "type": "regular"
                 }
             ],
@@ -1429,7 +1459,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -1449,19 +1479,23 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/5-large_default\/blouse.jpg",
-                "http:\/\/presta-product.loc\/6-large_default\/blouse.jpg"
+                "http:\/\/localhost:8888\/prestashop\/5-large_default\/chemisier.jpg",
+                "http:\/\/localhost:8888\/prestashop\/6-large_default\/chemisier.jpg"
             ],
-            "item_group_id": "2"
+            "item_group_id": "2",
+            "color": "Blanc",
+            "size": "S"
         },
         {
             "id": "2-9",
-            "link": "http:\/\/presta-product.loc\/2-blouse.html",
+            "name": "Chemisier M Noir",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/2-chemisier.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 2807,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3239,
+                    "vat": "32.39",
                     "type": "regular"
                 }
             ],
@@ -1473,7 +1507,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -1493,18 +1527,22 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/7-large_default\/blouse.jpg"
+                "http:\/\/localhost:8888\/prestashop\/7-large_default\/chemisier.jpg"
             ],
-            "item_group_id": "2"
+            "item_group_id": "2",
+            "color": "Noir",
+            "size": "M"
         },
         {
             "id": "2-10",
-            "link": "http:\/\/presta-product.loc\/2-blouse.html",
+            "name": "Chemisier M Blanc",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/2-chemisier.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 2807,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3239,
+                    "vat": "32.39",
                     "type": "regular"
                 }
             ],
@@ -1516,7 +1554,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -1536,19 +1574,23 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/5-large_default\/blouse.jpg",
-                "http:\/\/presta-product.loc\/6-large_default\/blouse.jpg"
+                "http:\/\/localhost:8888\/prestashop\/5-large_default\/chemisier.jpg",
+                "http:\/\/localhost:8888\/prestashop\/6-large_default\/chemisier.jpg"
             ],
-            "item_group_id": "2"
+            "item_group_id": "2",
+            "color": "Blanc",
+            "size": "M"
         },
         {
             "id": "2-11",
-            "link": "http:\/\/presta-product.loc\/2-blouse.html",
+            "name": "Chemisier L Noir",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/2-chemisier.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 2807,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3239,
+                    "vat": "32.39",
                     "type": "regular"
                 }
             ],
@@ -1560,7 +1602,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -1580,18 +1622,22 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/7-large_default\/blouse.jpg"
+                "http:\/\/localhost:8888\/prestashop\/7-large_default\/chemisier.jpg"
             ],
-            "item_group_id": "2"
+            "item_group_id": "2",
+            "color": "Noir",
+            "size": "L"
         },
         {
             "id": "2-12",
-            "link": "http:\/\/presta-product.loc\/2-blouse.html",
+            "name": "Chemisier L Blanc",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/2-chemisier.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 2807,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 3239,
+                    "vat": "32.39",
                     "type": "regular"
                 }
             ],
@@ -1603,7 +1649,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -1623,19 +1669,23 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/5-large_default\/blouse.jpg",
-                "http:\/\/presta-product.loc\/6-large_default\/blouse.jpg"
+                "http:\/\/localhost:8888\/prestashop\/5-large_default\/chemisier.jpg",
+                "http:\/\/localhost:8888\/prestashop\/6-large_default\/chemisier.jpg"
             ],
-            "item_group_id": "2"
+            "item_group_id": "2",
+            "color": "Blanc",
+            "size": "L"
         },
         {
             "id": "1-1",
-            "link": "http:\/\/presta-product.loc\/1-faded-short-sleeves-tshirt.html",
+            "name": "T-shirt d\u00e9lav\u00e9 \u00e0 manches courtes S Orange",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/1-t-shirt-delave-manches-courtes.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 1717,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 1981,
+                    "vat": "19.81",
                     "type": "regular"
                 }
             ],
@@ -1647,7 +1697,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -1667,19 +1717,23 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/1-large_default\/faded-short-sleeves-tshirt.jpg",
-                "http:\/\/presta-product.loc\/2-large_default\/faded-short-sleeves-tshirt.jpg"
+                "http:\/\/localhost:8888\/prestashop\/1-large_default\/t-shirt-delave-manches-courtes.jpg",
+                "http:\/\/localhost:8888\/prestashop\/2-large_default\/t-shirt-delave-manches-courtes.jpg"
             ],
-            "item_group_id": "1"
+            "item_group_id": "1",
+            "color": "Orange",
+            "size": "S"
         },
         {
             "id": "1-2",
-            "link": "http:\/\/presta-product.loc\/1-faded-short-sleeves-tshirt.html",
+            "name": "T-shirt d\u00e9lav\u00e9 \u00e0 manches courtes S Bleu",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/1-t-shirt-delave-manches-courtes.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 1717,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 1981,
+                    "vat": "19.81",
                     "type": "regular"
                 }
             ],
@@ -1691,7 +1745,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -1711,19 +1765,23 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/3-large_default\/faded-short-sleeves-tshirt.jpg",
-                "http:\/\/presta-product.loc\/4-large_default\/faded-short-sleeves-tshirt.jpg"
+                "http:\/\/localhost:8888\/prestashop\/3-large_default\/t-shirt-delave-manches-courtes.jpg",
+                "http:\/\/localhost:8888\/prestashop\/4-large_default\/t-shirt-delave-manches-courtes.jpg"
             ],
-            "item_group_id": "1"
+            "item_group_id": "1",
+            "color": "Bleu",
+            "size": "S"
         },
         {
             "id": "1-3",
-            "link": "http:\/\/presta-product.loc\/1-faded-short-sleeves-tshirt.html",
+            "name": "T-shirt d\u00e9lav\u00e9 \u00e0 manches courtes M Orange",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/1-t-shirt-delave-manches-courtes.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 1717,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 1981,
+                    "vat": "19.81",
                     "type": "regular"
                 }
             ],
@@ -1735,7 +1793,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -1755,19 +1813,23 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/1-large_default\/faded-short-sleeves-tshirt.jpg",
-                "http:\/\/presta-product.loc\/2-large_default\/faded-short-sleeves-tshirt.jpg"
+                "http:\/\/localhost:8888\/prestashop\/1-large_default\/t-shirt-delave-manches-courtes.jpg",
+                "http:\/\/localhost:8888\/prestashop\/2-large_default\/t-shirt-delave-manches-courtes.jpg"
             ],
-            "item_group_id": "1"
+            "item_group_id": "1",
+            "color": "Orange",
+            "size": "M"
         },
         {
             "id": "1-4",
-            "link": "http:\/\/presta-product.loc\/1-faded-short-sleeves-tshirt.html",
+            "name": "T-shirt d\u00e9lav\u00e9 \u00e0 manches courtes M Bleu",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/1-t-shirt-delave-manches-courtes.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 1717,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 1981,
+                    "vat": "19.81",
                     "type": "regular"
                 }
             ],
@@ -1779,7 +1841,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -1799,19 +1861,23 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/3-large_default\/faded-short-sleeves-tshirt.jpg",
-                "http:\/\/presta-product.loc\/4-large_default\/faded-short-sleeves-tshirt.jpg"
+                "http:\/\/localhost:8888\/prestashop\/3-large_default\/t-shirt-delave-manches-courtes.jpg",
+                "http:\/\/localhost:8888\/prestashop\/4-large_default\/t-shirt-delave-manches-courtes.jpg"
             ],
-            "item_group_id": "1"
+            "item_group_id": "1",
+            "color": "Bleu",
+            "size": "M"
         },
         {
             "id": "1-5",
-            "link": "http:\/\/presta-product.loc\/1-faded-short-sleeves-tshirt.html",
+            "name": "T-shirt d\u00e9lav\u00e9 \u00e0 manches courtes L Orange",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/1-t-shirt-delave-manches-courtes.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 1717,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 1981,
+                    "vat": "19.81",
                     "type": "regular"
                 }
             ],
@@ -1823,7 +1889,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -1843,19 +1909,23 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/1-large_default\/faded-short-sleeves-tshirt.jpg",
-                "http:\/\/presta-product.loc\/2-large_default\/faded-short-sleeves-tshirt.jpg"
+                "http:\/\/localhost:8888\/prestashop\/1-large_default\/t-shirt-delave-manches-courtes.jpg",
+                "http:\/\/localhost:8888\/prestashop\/2-large_default\/t-shirt-delave-manches-courtes.jpg"
             ],
-            "item_group_id": "1"
+            "item_group_id": "1",
+            "color": "Orange",
+            "size": "L"
         },
         {
             "id": "1-6",
-            "link": "http:\/\/presta-product.loc\/1-faded-short-sleeves-tshirt.html",
+            "name": "T-shirt d\u00e9lav\u00e9 \u00e0 manches courtes L Bleu",
+            "description": "Fashion propose des v\u00eatements de qualit\u00e9 depuis 2010. La marque propose une gamme f\u00e9minine compos\u00e9e d'\u00e9l\u00e9gants v\u00eatements \u00e0 coordonner et de robes originales et offre d\u00e9sormais une collection compl\u00e8te de pr\u00eat-\u00e0-porter, regroupant toutes les pi\u00e8ces qu'une femme doit avoir dans sa garde-robe. Fashion se distingue avec des looks \u00e0 la fois cool, simples et rafra\u00eechissants, alliant \u00e9l\u00e9gance et chic, pour un style reconnaissable entre mille. Chacune des magnifiques pi\u00e8ces de la collection est fabriqu\u00e9e avec le plus grand soin en Italie. Fashion enrichit son offre avec une gamme d'accessoires incluant chaussures, chapeaux, ceintures et bien plus encore\u00a0!",
+            "link": "http:\/\/localhost:8888\/prestashop\/1-t-shirt-delave-manches-courtes.html",
             "prices": [
                 {
-                    "currency": "USD",
-                    "value": 1717,
-                    "vat": 400,
+                    "currency": "EUR",
+                    "value": 1981,
+                    "vat": "19.81",
                     "type": "regular"
                 }
             ],
@@ -1867,7 +1937,7 @@
             "categories": [
                 {
                     "id": "2",
-                    "name": "Home",
+                    "name": "Accueil",
                     "parentId": "1"
                 },
                 {
@@ -1887,10 +1957,12 @@
                 }
             ],
             "additional_image_links": [
-                "http:\/\/presta-product.loc\/3-large_default\/faded-short-sleeves-tshirt.jpg",
-                "http:\/\/presta-product.loc\/4-large_default\/faded-short-sleeves-tshirt.jpg"
+                "http:\/\/localhost:8888\/prestashop\/3-large_default\/t-shirt-delave-manches-courtes.jpg",
+                "http:\/\/localhost:8888\/prestashop\/4-large_default\/t-shirt-delave-manches-courtes.jpg"
             ],
-            "item_group_id": "1"
+            "item_group_id": "1",
+            "color": "Bleu",
+            "size": "L"
         }
     ]
 }

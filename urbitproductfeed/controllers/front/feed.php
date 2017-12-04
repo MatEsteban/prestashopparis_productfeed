@@ -44,15 +44,15 @@ class UrbitProductfeedFeedModuleFrontController extends ModuleFrontController
             $this->setTemplate('module:urbitproductfeed/views/templates/front/feedtemp.tpl');
         }
 
-        if (Tools::getIsset(Tools::getValue(array('cron')))) {
-            $this->generateByCron();
-        } else {
-            echo $this->getProductsJson();
+
+      if (Tools::getIsset(Tools::getValue(array('cron')))) {
+              $this->generateByCron();
+          } else {
+              echo $this->getProductsJson();
         }
 
         exit;
     }
-
     /**
      * Write feed to file and return feed from this file
      * @return string
