@@ -208,19 +208,43 @@ class UrbitProductfeedFeed
     }
 
     /**
-     * Get Product collection filtered by categories and tags
+     * Get product filter from config
+     * @return null
+     */
+    public static function getProductFilters()
+    {
+        $filterValue = Configuration::get('URBITPRODUCTFEED_FILTER_PRODUCT_ID', null);
+
+        return $filterValue ? explode(',', $filterValue) : null;
+    }
+
+    /**
+     * Get minimal stock filter from config
+     */
+    public static function getMinimalStockFilter()
+    {
+        $filterValue = Configuration::get('URBITPRODUCTFEED_MINIMAL_STOCK', null);
+
+        return $filterValue ? : null;
+    }
+
+    /**
+     * Get Product collection filtered by config
      * @param $id_lang
      * @param $start
      * @param $limit
      * @param $order_by
      * @param $order_way
+     * @param bool $product_id
      * @param bool $categoriesArray
      * @param bool $tagsArray
+     * @param bool $minimalStock
+     * @param bool $productsArray
      * @param bool $only_active
      * @param Context|null $context
      * @return array|false|mysqli_result|null|PDOStatement|resource
      */
-    public static function getProductsFilteredByCategoriesAndTags(
+    public static function getFilteredProducts(
         $id_lang,
         $start,
         $limit,
@@ -228,10 +252,11 @@ class UrbitProductfeedFeed
         $order_way,
         $categoriesArray = false,
         $tagsArray = false,
+        $minimalStock = false,
+        $productsArray = false,
         $only_active = false,
         Context $context = null
     ) {
-
         if (!$context) {
             $context = Context::getContext();
         }
@@ -263,18 +288,34 @@ class UrbitProductfeedFeed
 				LEFT JOIN `' . _DB_PREFIX_ . 'product_lang` pl ON (p.`id_product` = pl.`id_product` ' . Shop::addSqlRestrictionOnLang('pl') . ')
 				LEFT JOIN `' . _DB_PREFIX_ . 'manufacturer` m ON (m.`id_manufacturer` = p.`id_manufacturer`)
 				LEFT JOIN `' . _DB_PREFIX_ . 'supplier` s ON (s.`id_supplier` = p.`id_supplier`)' .
-            ($categoriesArray ? 'LEFT JOIN `' . _DB_PREFIX_ . 'category_product` c ON (c.`id_product` = p.`id_product`)' : '') . ' ' .
-            ($tagsArray ? 'LEFT JOIN `' . _DB_PREFIX_ . 'product_tag` pt ON (pt.`id_product` = p.`id_product`)' : '') . ' ' .
-            ($tagsArray ? 'LEFT JOIN `' . _DB_PREFIX_ . 'tag` t ON (pt.`id_tag` = t.`id_tag`)' : '') . '
+            ($categoriesArray ? 'LEFT JOIN `' . _DB_PREFIX_ . 'category_product` c ON (c.`id_product` = p.`id_product`)' : '') . '
 				WHERE pl.`id_lang` = ' . (int)$id_lang .
+            ($minimalStock ?
+                ' AND (SELECT count(id_stock_available) FROM `' . _DB_PREFIX_ . 'stock_available` st
+                    WHERE (st.`id_product` = p.`id_product`
+                            AND st.`quantity` >= '. $minimalStock . '
+                            AND (SELECT count(*) from `' . _DB_PREFIX_ . 'stock_available` stock
+                                    WHERE stock.`id_product` = p.`id_product`
+                            ) = 1
+                    ) OR (
+                        st.`id_product` = p.`id_product`
+                        AND st.`quantity` >= '. $minimalStock . '
+                        AND st.`id_product_attribute` != 0
+                    ) > 0)' : ''
+            ) .
             ($categoriesArray ? ' AND c.`id_category` in (' . implode(',', $categoriesArray) . ')' : '') .
-            ($tagsArray ? ' AND t.`name` in ("' . implode(',', $tagsArray) . '")' : '') .
+            ($productsArray ? ' AND p.`id_product`in (' . implode(',', $productsArray) . ')' : '') .
+            ($tagsArray ? ' AND (SELECT count(*) FROM `' . _DB_PREFIX_ . 'product` pr
+                LEFT JOIN `' . _DB_PREFIX_ . 'product_tag` prt ON (prt.`id_product` = pr.`id_product`)
+                LEFT JOIN `' . _DB_PREFIX_ . 'tag` tg ON (prt.`id_tag` = tg.`id_tag`)
+                WHERE pr.`id_product`= p.`id_product`
+                AND tg.`name` in ("' . implode('","', $tagsArray) . '")) > 0' : '') .
             ($front ? ' AND product_shop.`visibility` IN ("both", "catalog")' : '') .
             ($only_active ? ' AND product_shop.`active` = 1' : '') . '
 				ORDER BY ' . (isset($order_by_prefix) ? pSQL($order_by_prefix) . '.' : '') . '`' . pSQL($order_by) . '` ' . pSQL($order_way) .
             ($limit > 0 ? ' LIMIT ' . (int)$start . ',' . (int)$limit : '')
         ;
-
+        
         $rq = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
 
         if ($order_by == 'price') {

@@ -116,11 +116,6 @@ class UrbitProductfeedFieldsFactory
         return $this->_generateInputs($this->_priceInputs);
     }
 
-    // public function getInventoryListInputs()
-    // {
-    //     return $this->_generateTextInputs($this->_inventoryListInputs);
-    // }
-
     /**
      * @param $name
      * @return string
@@ -158,19 +153,6 @@ class UrbitProductfeedFieldsFactory
         return $config;
     }
 
-    // /**
-    //  * @return array
-    //  */
-    // public function getInventoryListInputsConfig()
-    // {
-    //     $config = array();
-    //
-    //     foreach ($this->_inventoryListInputs as $key => $name) {
-    //         $config[$key] = $this->getInputConfig($key);
-    //     }
-    //
-    //     return $config;
-    // }
 
     /**
      * @return array
@@ -238,9 +220,7 @@ class UrbitProductfeedFieldsFactory
                     'name'  => 'name',
                 ),
                 'class'   => 'fixed-width-xxl',
-
             );
-
         }
 
         return $inputs;

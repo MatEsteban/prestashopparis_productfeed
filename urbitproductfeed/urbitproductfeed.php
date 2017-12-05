@@ -29,7 +29,7 @@ require_once dirname(__FILE__) . '/Helper/UrbitHelperForm.php';
 class UrbitProductfeed extends Module
 {
     const NAME = 'urbitproductfeed';
-    //public $url_config;
+
     /**
      * @var bool
      */
@@ -47,10 +47,11 @@ class UrbitProductfeed extends Module
     {
         $this->name = 'urbitproductfeed';
         $this->tab = 'administration';
-        $this->version = '1.0.2';
+        $this->version = '1.0.3';
         $this->author = 'Urbit';
         $this->module_key = 'a28ee08818efc46aecb78bc6ef2c9b3c';
         $this->need_instance = 1;
+        $this->controllers = 'FeedModule';
 
         $this->fields = array(
             'factory' => new UrbitProductfeedFieldsFactory(),
@@ -82,11 +83,9 @@ class UrbitProductfeed extends Module
     {
         Configuration::updateValue('PRODUCTFEED_LIVE_MODE', false);
 
-        include(dirname(__FILE__) . '/sql/install.php');
-
         return parent::install()
-            && $this->registerHook('header');
-
+            && $this->registerHook('header')
+            && $this->registerHook('backOfficeHeader');
     }
 
     /**
@@ -96,35 +95,37 @@ class UrbitProductfeed extends Module
     {
         Configuration::deleteByName('PRODUCTFEED_LIVE_MODE');
 
-        include(dirname(__FILE__) . '/sql/uninstall.php');
-
         return parent::uninstall();
     }
 
     /**
-    * Load the configuration form
-    */
+     * Load the configuration form
+     */
     public function getContent()
     {
-       /**
-        * If values have been submitted in the form, process.
-        */
-
+        /**
+         * If values have been submitted in the form, process.
+         */
         $output = '';
         $this->context->smarty->assign('active', 'intro');
+
+        //link to controller (for ajax call)
+        $this->context->smarty->assign('controllerlink', $this->context->link->getModuleLink('urbitproductfeed', 'feed', array()));
+
         if (((bool)Tools::isSubmit('submitProductfeedModule')) == true) {
-              $output = $this->postProcess();
-              $this->context->smarty->assign('active', 'account');
+            $output = $this->postProcess();
+            $this->context->smarty->assign('active', 'account');
         }
 
         $config = $this->renderForm();
         $this->context->smarty->assign(
-          array(
+            array(
                 'config' => $config,
                 'urbitproductfeed_img_path'  => $this->_path.'views/img/',
-                ));
+              )
+        );
 
-        return  $output.$this->context->smarty->fetch($this->local_path.'views/templates/admin/configure.tpl');
+        return $output . $this->context->smarty->fetch($this->local_path . 'views/templates/admin/configure.tpl');
     }
 
 
@@ -153,6 +154,7 @@ class UrbitProductfeed extends Module
         $valueArray['URBITPRODUCTFEED_ATTRIBUTE_ADDITIONAL_ATTRIBUTE[]'] = explode(',', Configuration::get('URBITPRODUCTFEED_ATTRIBUTE_ADDITIONAL_ATTRIBUTE', null));
         $valueArray['URBITPRODUCTFEED_TAGS_IDS[]'] = explode(',', Configuration::get('URBITPRODUCTFEED_TAGS_IDS', null));
         $valueArray['URBITPRODUCTFEED_FILTER_CATEGORIES[]'] = explode(',', Configuration::get('URBITPRODUCTFEED_FILTER_CATEGORIES', null));
+        $valueArray['URBITPRODUCTFEED_FILTER_PRODUCT_ID[]'] = explode(',', Configuration::get('URBITPRODUCTFEED_FILTER_PRODUCT_ID', null));
 
         $attributeTypes = $this->getAttributeTypes();
 
@@ -172,17 +174,16 @@ class UrbitProductfeed extends Module
     protected function getAttributeTypes()
     {
         return array(
-           array(
+            array(
 
                 'name'  => 'String',
                 'value' => 'string',
             ),
-           array(
-
+            array(
                 'name'  => 'Number',
                 'value' => 'number',
             ),
-           array(
+            array(
                 'name'  => 'Boolean',
                 'value' => 'boolean',
             ),
@@ -214,21 +215,21 @@ class UrbitProductfeed extends Module
      */
     protected function getConfigForm()
     {
-        return  array(
-            'form' =>  array(
-                'legend' =>  array(
+        return array(
+            'form' => array(
+                'legend' => array(
                     'title' => $this->l('Settings'),
                     'icon'  => 'icon-cogs',
                 ),
-                'input'  =>  array(
-                     array(
+                'input'  => array(
+                    array(
                         'type'    => 'switch',
                         'label'   => $this->l('Live mode'),
                         'name'    => 'URBITPRODUCTFEED_LIVE_MODE',
                         'is_bool' => true,
                         'desc'    => $this->l('Use this module in live mode'),
-                        'values'  =>  array(
-                             array(
+                        'values'  => array(
+                            array(
                                 'id'    => 'active_on',
                                 'value' => true,
                                 'label' => $this->l('Enabled'),
@@ -254,7 +255,7 @@ class UrbitProductfeed extends Module
                         'label' => $this->l('Password'),
                     ),
                 ),
-                'submit' =>  array(
+                'submit' => array(
                     'title' => $this->l('Save'),
                 ),
             ),
@@ -329,6 +330,30 @@ class UrbitProductfeed extends Module
     }
 
     /**
+     * @param $withNotSetted
+     * @return array
+     */
+    protected function getProductsOptions($withNotSetted = false)
+    {
+        $optionsForProductSelect = array();
+
+        if ($withNotSetted) {
+            $optionsForProductSelect[] = array(
+                'id'   => '',
+                'name' => 'Not Setted',
+            );
+        }
+
+        $products = Product::getProducts($this->context->language->id, 0, 0, 'id_product', 'ASC');
+
+        foreach ($products as $product) {
+            $optionsForProductSelect[] = array('id' => $product['id_product'], 'name' => $product['id_product'] . ' : ' . $product['name']);
+        }
+
+        return $optionsForProductSelect;
+    }
+
+    /**
      * return options for tags selects
      * @return array
      */
@@ -349,7 +374,7 @@ class UrbitProductfeed extends Module
      */
     protected function getCacheOptions()
     {
-        return  array(
+        return array(
             array(
                 'id'   => 0.00000001,
                 'name' => 'DISABLE CACHE',
@@ -407,6 +432,7 @@ class UrbitProductfeed extends Module
         $optionsForTagSelect = $this->getTagsOptions();
         $optionsForCacheSelect = $this->getCacheOptions();
         $optionsForTaxes = $this->getCountriesOptions(true);
+        $optionsForProductFilter = $this->getProductsOptions(true);
 
         $fields_form = array();
 
@@ -429,7 +455,6 @@ class UrbitProductfeed extends Module
                     'class'   => 'fixed-width-xxl',
                     'hint' => $this->l('The extension uses caching system to reduce a site load and speed up the plug-in during the generation of the feed, so feed is created and saved to file at specific time intervals. The refresh interval is specified on the  \'Cache duration \' drop-down list.'),
                 ),
-
             ),
             'submit' => array(
                 'title' => $this->l('Save'),
@@ -447,6 +472,7 @@ class UrbitProductfeed extends Module
                     'type'     => 'select',
                     'label'    => $this->l('Categories'),
                     'name'     => 'URBITPRODUCTFEED_FILTER_CATEGORIES[]',
+                    'id'       => 'urbitproductfeed-filter-categories',
                     'multiple' => true,
                     'options'  => array(
                         'query' => $optionsForCategorySelect,
@@ -461,6 +487,7 @@ If there is no selected filter parameter (categories or tags or the number of pr
                     'type'     => 'select',
                     'label'    => $this->l('Tags'),
                     'name'     => 'URBITPRODUCTFEED_TAGS_IDS[]',
+                    'id'       => 'urbitproductfeed-filter-tags',
                     'multiple' => true,
                     'options'  => array(
                         'query' => $optionsForTagSelect,
@@ -475,8 +502,21 @@ If there is no selected filter parameter (categories or tags or the number of pr
                     'type'  => 'text',
                     'label' => $this->l('Minimal Stock'),
                     'name'  => 'URBITPRODUCTFEED_MINIMAL_STOCK',
+                    'id'    => 'urbitproductfeed-filter-minimal-stock',
                     'class' => 'fixed-width-xxl',
                     'hint' => $this->l('Filter your product export by stock amount'),
+                ),
+                array(
+                    'type'    => 'urbit_product_id_filter',
+                    'label'   => $this->l('Product ID'),
+                    'name'    => 'URBITPRODUCTFEED_FILTER_PRODUCT_ID_NEW',
+                    'options' => array(
+                        'query' => $this->fields['factory']->getOptions(),
+                        'id'    => 'id',
+                        'name'  => 'name',
+                    ),
+                    'class'   => 'fixed-width-xxl',
+                    'hint' => $this->l('Select your Product ID'),
                 ),
             ),
             'submit' => array(
@@ -487,7 +527,7 @@ If there is no selected filter parameter (categories or tags or the number of pr
         //Product Dimentions
         $fields_form[2]['form'] = array(
             'legend' => array(
-                'title' => $this->l('Product Fields - Product Dimensions'),
+                'title' => $this->l('Product Fields - Product Dimentions'),
                 'icon'  => 'icon-cogs',
             ),
             'input'  => $this->fields['factory']->getInputs(),
@@ -652,7 +692,7 @@ If there is no selected filter parameter (categories or tags or the number of pr
             ),
             'submit' => array(
                 'title' => $this->l('Save'),
-              ),
+            ),
         );
 
         $fields_form[7]['form'] = array(
@@ -678,17 +718,6 @@ If there is no selected filter parameter (categories or tags or the number of pr
             ),
         );
 
-        // $fields_form[8]['form'] = array(
-        //     'legend' => array(
-        //         'title' => $this->l('Custom Inventory List'),
-        //         'icon'  => 'icon-cogs',
-        //     ),
-        //     'input'  => $this->fields['factory']->getInventoryListInputs(),
-        //     'submit' => array(
-        //         'title' => $this->l('Save'),
-        //     ),
-        // );
-
         return $fields_form;
     }
 
@@ -699,67 +728,66 @@ If there is no selected filter parameter (categories or tags or the number of pr
     {
         return array_merge(
             array(
-            'URBITPRODUCTFEED_CACHE_DURATION'                     => Configuration::get('URBITPRODUCTFEED_CACHE_DURATION', null),
-            'URBITPRODUCTFEED_TAX_COUNTRY'                        => Configuration::get('URBITPRODUCTFEED_TAX_COUNTRY', null),
-            'URBITPRODUCTFEED_MINIMAL_STOCK'                      => Configuration::get('URBITPRODUCTFEED_MINIMAL_STOCK', null),
-            'URBITPRODUCTFEED_DIMENSION_HEIGHT'                   => Configuration::get('URBITPRODUCTFEED_DIMENSION_HEIGHT', null),
-            'URBITPRODUCTFEED_DIMENSION_LENGTH'                   => Configuration::get('URBITPRODUCTFEED_DIMENSION_LENGTH', null),
-            'URBITPRODUCTFEED_DIMENSION_WIDTH'                    => Configuration::get('URBITPRODUCTFEED_DIMENSION_WIDTH', null),
-            'URBITPRODUCTFEED_DIMENSION_WEIGHT'                   => Configuration::get('URBITPRODUCTFEED_DIMENSION_WEIGHT', null),
-            'URBITPRODUCTFEED_DIMENSION_UNIT'                     => Configuration::get('URBITPRODUCTFEED_DIMENSION_UNIT', null),
-            'URBITPRODUCTFEED_WEIGHT_UNIT'                        => Configuration::get('URBITPRODUCTFEED_WEIGHT_UNIT', null),
-            'URBITPRODUCTFEED_ATTRIBUTE_EAN'                      => Configuration::get('URBITPRODUCTFEED_ATTRIBUTE_EAN', null),
-            'URBITPRODUCTFEED_ATTRIBUTE_MPN'                      => Configuration::get('URBITPRODUCTFEED_ATTRIBUTE_MPN', null),
-            'URBITPRODUCTFEED_ATTRIBUTE_COLOR'                    => Configuration::get('URBITPRODUCTFEED_ATTRIBUTE_COLOR', null),
-            'URBITPRODUCTFEED_ATTRIBUTE_SIZE'                     => Configuration::get('URBITPRODUCTFEED_ATTRIBUTE_SIZE', null),
-            'URBITPRODUCTFEED_ATTRIBUTE_GENDER'                   => Configuration::get('URBITPRODUCTFEED_ATTRIBUTE_GENDER', null),
-            'URBITPRODUCTFEED_ATTRIBUTE_MATERIAL'                 => Configuration::get('URBITPRODUCTFEED_ATTRIBUTE_MATERIAL', null),
-            'URBITPRODUCTFEED_ATTRIBUTE_PATTERN'                  => Configuration::get('URBITPRODUCTFEED_ATTRIBUTE_PATTERN', null),
-            'URBITPRODUCTFEED_ATTRIBUTE_AGE_GROUP'                => Configuration::get('URBITPRODUCTFEED_ATTRIBUTE_AGE_GROUP', null),
-            'URBITPRODUCTFEED_ATTRIBUTE_CONDITION'                => Configuration::get('URBITPRODUCTFEED_ATTRIBUTE_CONDITION', null),
-            'URBITPRODUCTFEED_ATTRIBUTE_SIZE_TYPE'                => Configuration::get('URBITPRODUCTFEED_ATTRIBUTE_SIZE_TYPE', null),
-            'URBITPRODUCTFEED_ATTRIBUTE_BRANDS'                   => Configuration::get('URBITPRODUCTFEED_ATTRIBUTE_BRANDS', null),
-            'URBITPRODUCTFEED_ATTRIBUTE_ADDITIONAL_ATTRIBUTE'     => explode(',', Configuration::get('URBITPRODUCTFEED_ATTRIBUTE_ADDITIONAL_ATTRIBUTE', null)),
-            'URBITPRODUCTFEED_ATTRIBUTE_ADDITIONAL_ATTRIBUTE_NEW' => json_decode(Configuration::get('URBITPRODUCTFEED_ATTRIBUTE_ADDITIONAL_ATTRIBUTE_NEW', null), true),
-            'URBITPRODUCTFEED_FILTER_CATEGORIES'                  => explode(',', Configuration::get('URBITPRODUCTFEED_FILTER_CATEGORIES', null)),
-            'URBITPRODUCTFEED_TAGS_IDS'                           => explode(',', Configuration::get('URBITPRODUCTFEED_TAGS_IDS', null)),
+                'URBITPRODUCTFEED_CACHE_DURATION'                     => Configuration::get('URBITPRODUCTFEED_CACHE_DURATION', null),
+                'URBITPRODUCTFEED_TAX_COUNTRY'                        => Configuration::get('URBITPRODUCTFEED_TAX_COUNTRY', null),
+                'URBITPRODUCTFEED_MINIMAL_STOCK'                      => Configuration::get('URBITPRODUCTFEED_MINIMAL_STOCK', null),
+                'URBITPRODUCTFEED_DIMENSION_HEIGHT'                   => Configuration::get('URBITPRODUCTFEED_DIMENSION_HEIGHT', null),
+                'URBITPRODUCTFEED_DIMENSION_LENGTH'                   => Configuration::get('URBITPRODUCTFEED_DIMENSION_LENGTH', null),
+                'URBITPRODUCTFEED_DIMENSION_WIDTH'                    => Configuration::get('URBITPRODUCTFEED_DIMENSION_WIDTH', null),
+                'URBITPRODUCTFEED_DIMENSION_WEIGHT'                   => Configuration::get('URBITPRODUCTFEED_DIMENSION_WEIGHT', null),
+                'URBITPRODUCTFEED_DIMENSION_UNIT'                     => Configuration::get('URBITPRODUCTFEED_DIMENSION_UNIT', null),
+                'URBITPRODUCTFEED_WEIGHT_UNIT'                        => Configuration::get('URBITPRODUCTFEED_WEIGHT_UNIT', null),
+                'URBITPRODUCTFEED_ATTRIBUTE_EAN'                      => Configuration::get('URBITPRODUCTFEED_ATTRIBUTE_EAN', null),
+                'URBITPRODUCTFEED_ATTRIBUTE_MPN'                      => Configuration::get('URBITPRODUCTFEED_ATTRIBUTE_MPN', null),
+                'URBITPRODUCTFEED_ATTRIBUTE_COLOR'                    => Configuration::get('URBITPRODUCTFEED_ATTRIBUTE_COLOR', null),
+                'URBITPRODUCTFEED_ATTRIBUTE_SIZE'                     => Configuration::get('URBITPRODUCTFEED_ATTRIBUTE_SIZE', null),
+                'URBITPRODUCTFEED_ATTRIBUTE_GENDER'                   => Configuration::get('URBITPRODUCTFEED_ATTRIBUTE_GENDER', null),
+                'URBITPRODUCTFEED_ATTRIBUTE_MATERIAL'                 => Configuration::get('URBITPRODUCTFEED_ATTRIBUTE_MATERIAL', null),
+                'URBITPRODUCTFEED_ATTRIBUTE_PATTERN'                  => Configuration::get('URBITPRODUCTFEED_ATTRIBUTE_PATTERN', null),
+                'URBITPRODUCTFEED_ATTRIBUTE_AGE_GROUP'                => Configuration::get('URBITPRODUCTFEED_ATTRIBUTE_AGE_GROUP', null),
+                'URBITPRODUCTFEED_ATTRIBUTE_CONDITION'                => Configuration::get('URBITPRODUCTFEED_ATTRIBUTE_CONDITION', null),
+                'URBITPRODUCTFEED_ATTRIBUTE_SIZE_TYPE'                => Configuration::get('URBITPRODUCTFEED_ATTRIBUTE_SIZE_TYPE', null),
+                'URBITPRODUCTFEED_ATTRIBUTE_BRANDS'                   => Configuration::get('URBITPRODUCTFEED_ATTRIBUTE_BRANDS', null),
+                'URBITPRODUCTFEED_ATTRIBUTE_ADDITIONAL_ATTRIBUTE'     => explode(',', Configuration::get('URBITPRODUCTFEED_ATTRIBUTE_ADDITIONAL_ATTRIBUTE', null)),
+                'URBITPRODUCTFEED_ATTRIBUTE_ADDITIONAL_ATTRIBUTE_NEW' => json_decode(Configuration::get('URBITPRODUCTFEED_ATTRIBUTE_ADDITIONAL_ATTRIBUTE_NEW', null), true),
+                'URBITPRODUCTFEED_FILTER_CATEGORIES'                  => explode(',', Configuration::get('URBITPRODUCTFEED_FILTER_CATEGORIES', null)),
+                'URBITPRODUCTFEED_TAGS_IDS'                           => explode(',', Configuration::get('URBITPRODUCTFEED_TAGS_IDS', null)),
+                'URBITPRODUCTFEED_FILTER_PRODUCT_ID'                  => Configuration::get('URBITPRODUCTFEED_FILTER_PRODUCT_ID', null),
             ),
             $this->fields['factory']->getInputsConfig(),
             $this->fields['factory']->getPriceInputsConfig()
-            //$this->fields['factory']->getInventoryListInputsConfig()
         );
     }
-
 
     /**
      * Save form data.
      */
     protected function postProcess()
     {
-       $form_values = $this->getConfigFormValues();
+        $form_values = $this->getConfigFormValues();
         foreach (array_keys($form_values) as $key) {
-          if (in_array($key, array('URBITPRODUCTFEED_ATTRIBUTE_ADDITIONAL_ATTRIBUTE_NEW'))) {
+            if (in_array($key, array('URBITPRODUCTFEED_ATTRIBUTE_ADDITIONAL_ATTRIBUTE_NEW'))) {
                 $value = Tools::getValue($key) ?: null;
                 Configuration::updateValue($key, $value ? json_encode($value) : $value);
 
                 continue;
             }
-            if (in_array($key, array('URBITPRODUCTFEED_ATTRIBUTE_ADDITIONAL_ATTRIBUTE', 'URBITPRODUCTFEED_TAGS_IDS', 'URBITPRODUCTFEED_FILTER_CATEGORIES'))) {
+
+            if (in_array($key, array('URBITPRODUCTFEED_ATTRIBUTE_ADDITIONAL_ATTRIBUTE', 'URBITPRODUCTFEED_TAGS_IDS', 'URBITPRODUCTFEED_FILTER_CATEGORIES', 'URBITPRODUCTFEED_FILTER_PRODUCT_ID'))) {
                 $value = Tools::getValue($key) ?: null;
                 Configuration::updateValue($key, $value ? implode(',', $value) : null);
             } else {
                 Configuration::updateValue($key, Tools::getValue($key));
             }
-
         }
 
         if (Tools::getValue('URBITPRODUCTFEED_MINIMAL_STOCK') == null) {
-            $this->context->controller->errors[] = $this->l('Filter your product export by stock amount');
+             $this->context->controller->errors[] = $this->l('Filter your product export by stock amount');
         }
 
-        if (empty($this->context->controller->errors)){
-            return $this->displayConfirmation($this->l('Settings updated'));
-          }
+        if (empty($this->context->controller->errors)) {
+             return $this->displayConfirmation($this->l('Settings updated'));
+        }
     }
 
     /**
@@ -825,5 +853,10 @@ If there is no selected filter parameter (categories or tags or the number of pr
         }
 
         return array_unique($options, SORT_REGULAR);
+    }
+
+    public function hookDisplayBackOfficeHeader()
+    {
+        $this->context->controller->addJS($this->_path . 'views/js/multiselect.min.js');
     }
 }

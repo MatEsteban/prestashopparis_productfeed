@@ -119,7 +119,6 @@ class UrbitProductfeedFieldsFieldCalculated extends UrbitProductfeedFieldsFieldA
      */
     protected function getProductDescription(UrbitProductfeedFeedProduct $feedProduct)
     {
-       
         return strip_tags($feedProduct->getProduct()->description[Context::getContext()->language->id]);
     }
 
@@ -240,8 +239,12 @@ class UrbitProductfeedFieldsFieldCalculated extends UrbitProductfeedFieldsFieldA
         $price = Product::getPriceStatic($feedProduct->getProduct()->id, $useTax, ($feedProduct->getCombId() ? $feedProduct->getCombId() : null), 6, null, false, $useReduction);
         $priceWithTax = ($taxRate) ? $price + ($price * ($taxRate / 10000)) : $price;
 
-        return number_format($priceWithTax, 2, '.', '');
-
+        return number_format(
+            $priceWithTax,
+            2,
+            '.',
+            ''
+        );
     }
 
     /**

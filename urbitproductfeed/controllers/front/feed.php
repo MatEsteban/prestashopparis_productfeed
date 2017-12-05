@@ -36,6 +36,13 @@ class UrbitProductfeedFeedModuleFrontController extends ModuleFrontController
     {
         parent::initContent();
 
+        if ($this->ajax) {
+            $result = Tools::getIsset(Tools::getValue(array('configValues'))) ?
+                $this->getAjaxOptionsForResultFilter() : $this->getAjaxOptionsForProductFilter();
+
+            die(Tools::jsonEncode($result));
+        }
+
         header('Content-Type: application/json');
 
         if (version_compare(_PS_VERSION_, "1.7", "<")) {
@@ -44,15 +51,63 @@ class UrbitProductfeedFeedModuleFrontController extends ModuleFrontController
             $this->setTemplate('module:urbitproductfeed/views/templates/front/feedtemp.tpl');
         }
 
-
-      if (Tools::getIsset(Tools::getValue(array('cron')))) {
-              $this->generateByCron();
-          } else {
-              echo $this->getProductsJson();
+        if (Tools::getIsset(Tools::getValue(array('cron')))) {
+            $this->generateByCron();
+        } else {
+            echo $this->getProductsJson();
         }
 
         exit;
     }
+
+    /**
+     * Get options for dynamic left selectbox
+     * Used by AJAX
+     * @return array
+     */
+    protected function getAjaxOptionsForProductFilter()
+    {
+        $categoryFilters = Tools::getValue(array('categoriesFromAjax'));
+        $tagFilters = Tools::getValue(array('tagsFromAjax'));
+        $minimalStockFilter = Tools::getValue(array('minimalStockFromAjax'));
+
+        $optionsForProductMultiSelect = array();
+
+        $products = $this->getProductsFilteredByStandardFilters($categoryFilters, $tagFilters, $minimalStockFilter);
+
+        $uniqueProducts = array_unique($products, SORT_REGULAR);
+
+        foreach ($uniqueProducts as $product) {
+            $optionsForProductMultiSelect[] = array('id' => $product['id_product'], 'name' => $product['id_product'] . ' : ' . $product['name']);
+        }
+
+        return $optionsForProductMultiSelect;
+    }
+
+    /**
+     * Get options for result right selectbox
+     * Used by AJAX
+     * @return array
+     */
+    protected function getAjaxOptionsForResultFilter()
+    {
+        $resultFilter = UrbitProductfeedFeed::getProductFilters();
+
+        $optionsForProductMultiSelect = array();
+
+        if ($resultFilter) {
+            $products = $this->getProductsFilteredByResultFilter($resultFilter);
+
+            $uniqueProducts = array_unique($products, SORT_REGULAR);
+
+            foreach ($uniqueProducts as $product) {
+                $optionsForProductMultiSelect[] = array('id' => $product['id_product'], 'name' => $product['id_product'] . ' : ' . $product['name']);
+            }
+        }
+
+        return $optionsForProductMultiSelect;
+    }
+
     /**
      * Write feed to file and return feed from this file
      * @return string
@@ -62,13 +117,7 @@ class UrbitProductfeedFeedModuleFrontController extends ModuleFrontController
         $feedHelper = new UrbitProductfeedFeedHelper();
 
         if (!$feedHelper->checkCache()) {
-            $context = Context::getContext();
-            $categoryFilters = UrbitProductfeedFeed::getCategoryFilters();
-            $tagFilters = UrbitProductfeedFeed::getTagsFilters();
-
-            $products = UrbitProductfeedFeed::getProductsFilteredByCategoriesAndTags($context->language->id, 0, 0, 'id_product', 'DESC', $categoryFilters, $tagFilters);
-            $uniqueProducts = array_unique($products, SORT_REGULAR);
-            $feedHelper->generateFeed($uniqueProducts);
+            $feedHelper->generateFeed($this->getFilteredProductCollection());
         }
 
         return $feedHelper->getDataJson();
@@ -82,13 +131,68 @@ class UrbitProductfeedFeedModuleFrontController extends ModuleFrontController
         $feedHelper = new UrbitProductfeedFeedHelper();
 
         if (!$feedHelper->checkCache()) {
-            $context = Context::getContext();
-            $categoryFilters = UrbitProductfeedFeed::getCategoryFilters();
-            $tagFilters = UrbitProductfeedFeed::getTagsFilters();
-
-            $products = UrbitProductfeedFeed::getProductsFilteredByCategoriesAndTags($context->language->id, 0, 0, 'id_product', 'DESC', $categoryFilters, $tagFilters);
-            $uniqueProducts = array_unique($products, SORT_REGULAR);
-            $feedHelper->generateFeed($uniqueProducts);
+            $feedHelper->generateFeed($this->getFilteredProductCollection());
         }
+    }
+
+    /**
+     * Return product collection (without duplicates) filtered by standard filters from config (category, tag, minimal stock) OR result filter (if result filter != NULL)
+     * @return array
+     */
+    protected function getFilteredProductCollection()
+    {
+        $categoryFilters = UrbitProductfeedFeed::getCategoryFilters();
+        $tagFilters = UrbitProductfeedFeed::getTagsFilters();
+        $minimalStockFilter = UrbitProductfeedFeed::getMinimalStockFilter();
+        $resultFilter = UrbitProductfeedFeed::getProductFilters();
+
+        $products = ($resultFilter) ?
+            $this->getProductsFilteredByResultFilter($resultFilter) :
+            $this->getProductsFilteredByStandardFilters($categoryFilters, $tagFilters, $minimalStockFilter);
+
+        return array_unique($products, SORT_REGULAR);
+    }
+
+    /**
+     * Helper function
+     * Get product collection filtered by result filter
+     * @param $resultFilterValue
+     * @return array
+     */
+    protected function getProductsFilteredByResultFilter($resultFilterValue)
+    {
+        return UrbitProductfeedFeed::getFilteredProducts(
+            Context::getContext()->language->id,
+            0,
+            0,
+            'id_product',
+            'ASC',
+            false,
+            false,
+            false,
+            $resultFilterValue
+        );
+    }
+
+    /**
+     * Helper function
+     * Get product collection filtered by standard filters
+     * @param $categoryFilterValue
+     * @param $tagFilterValue
+     * @param $minimalStockFilterValue
+     * @return array
+     */
+    protected function getProductsFilteredByStandardFilters($categoryFilterValue, $tagFilterValue, $minimalStockFilterValue)
+    {
+        return $products = UrbitProductfeedFeed::getFilteredProducts(
+            Context::getContext()->language->id,
+            0,
+            0,
+            'id_product',
+            'ASC',
+            $categoryFilterValue,
+            $tagFilterValue,
+            $minimalStockFilterValue
+        );
     }
 }

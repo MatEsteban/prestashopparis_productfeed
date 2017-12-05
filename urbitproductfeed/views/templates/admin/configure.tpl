@@ -18,12 +18,9 @@
 *}
 
 <style>
-
-
 *, a{
   font-size: 12px;
 }
-
 .bootstrap h6, .bootstrap .h6{
   font-size: 14px;
 }

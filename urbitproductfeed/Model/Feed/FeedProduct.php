@@ -323,7 +323,7 @@ class UrbitProductfeedFeedProduct
     protected function processDimensions()
     {
         $dimensions = array();
-
+        
         if (floatval($heightValue = $this->_processAttribute('URBITPRODUCTFEED_DIMENSION_HEIGHT_VALUE'))) {
             $heightUnit = $this->_processAttribute('URBITPRODUCTFEED_DIMENSION_HEIGHT_UNIT')  ?: static::DEFAULT_UNIT;
 
