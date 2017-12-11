@@ -781,12 +781,16 @@ If there is no selected filter parameter (categories or tags or the number of pr
             }
         }
 
+        if (!(bool)preg_match('/^[0-9]{0,13}$/', Tools::getValue('URBITPRODUCTFEED_MINIMAL_STOCK')))  {
+            $this->context->controller->errors[] = $this->l('Add a Minimal stock');
+        }
+
         if (Tools::getValue('URBITPRODUCTFEED_MINIMAL_STOCK') == null) {
-             $this->context->controller->errors[] = $this->l('Filter your product export by stock amount');
+            $this->context->controller->errors[] = $this->l('Unable to validate an empty field');
         }
 
         if (empty($this->context->controller->errors)) {
-             return $this->displayConfirmation($this->l('Settings updated'));
+                return $this->displayConfirmation($this->l('Settings updated'));
         }
     }
 

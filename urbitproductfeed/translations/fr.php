@@ -49,6 +49,8 @@ $_MODULE['<{urbitproductfeed}prestashop>urbitproductfeed_59716c97497eb9694541f7c
 $_MODULE['<{urbitproductfeed}prestashop>urbitproductfeed_1cf05000491ab8186f65e56b67f3bab9'] = 'Sélectionner votre Pays dans le menu déroulant';
 $_MODULE['<{urbitproductfeed}prestashop>urbitproductfeed_7c19ae597e10753cbdd2f7d1334dfdcf'] = 'Attributs Urbit';
 $_MODULE['<{urbitproductfeed}prestashop>urbitproductfeed_42840ac3921141ed509bfc4b15817db0'] = 'Créer vos attributs additionnels';
+$_MODULE['<{urbitproductfeed}prestashop>urbitproductfeed_dcbc788439abeb868c216eba4e2737a4'] = 'Ajoutez un stock minimal';
+$_MODULE['<{urbitproductfeed}prestashop>urbitproductfeed_5453a408af857077d328e44b757b52e8'] = 'Impossible de valider un champ vide';
 $_MODULE['<{urbitproductfeed}prestashop>urbitproductfeed_c888438d14855d7d96a2724ee9c306bd'] = 'Mise a jour des paramètres ';
 $_MODULE['<{urbitproductfeed}prestashop>factory_ffa07bf412b490838bc3a856feb4bf3d'] = 'Aucun';
 $_MODULE['<{urbitproductfeed}prestashop>fieldattribute_e9fa6ec1076e8c50ec04e7840d2471f2'] = 'Attribut';
