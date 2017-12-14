@@ -132,7 +132,6 @@ img{
         </div>
       </div>
         <div id="account" class="tab-pane {if $active == 'account'}active{/if}">
-          <div class="alert alert-info">{l s='Please fill in your credentials to use the module' mod='urbitproductfeed'}</div>
           <div class="form-group" data-tab-id="account">
             {$config}
         </div>

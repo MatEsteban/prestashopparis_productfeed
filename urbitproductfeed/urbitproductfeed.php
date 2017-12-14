@@ -122,6 +122,7 @@ class UrbitProductfeed extends Module
             array(
                 'config' => $config,
                 'urbitproductfeed_img_path'  => $this->_path.'views/img/',
+                'token' => Tools::getValue('token'),
               )
         );
 
