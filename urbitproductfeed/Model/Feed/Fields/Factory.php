@@ -122,7 +122,7 @@ class UrbitProductfeedFieldsFactory
      */
     public static function getInputConfig($name)
     {
-        return Configuration::get($name, null);
+        return self::getConfigValue($name);
     }
 
     /**
@@ -252,5 +252,18 @@ class UrbitProductfeedFieldsFactory
     public static function getModule()
     {
         return UrbitProductfeed::getInstance();
+    }
+
+    /**
+     * Get value from ps_configuration for this key
+     * If multistore enable => get config value only for current store
+     * @param $key
+     * @return string
+     */
+    protected static function getConfigValue($key)
+    {
+        return (version_compare(_PS_VERSION_, '1.5', '>') && Shop::isFeatureActive()) ?
+            Configuration::get($key, null, null, Context::getContext()->shop->id) :
+            Configuration::get($key, null);
     }
 }

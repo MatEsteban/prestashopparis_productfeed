@@ -37,10 +37,33 @@ class UrbitProductfeedFeedModuleFrontController extends ModuleFrontController
         parent::initContent();
 
         if ($this->ajax) {
-            $result = Tools::getIsset(Tools::getValue(array('configValues'))) ?
+            $result = Tools::getValue('configValues') ?
                 $this->getAjaxOptionsForResultFilter() : $this->getAjaxOptionsForProductFilter();
 
             die(Tools::jsonEncode($result));
+        }
+
+        $token = Tools::getValue('token');
+
+        if (version_compare(_PS_VERSION_, '1.5', '>') && Shop::isFeatureActive()) {
+
+            $id_shop = $this->context->shop->id;
+            $tokenInConfig = Configuration::get('URBITPRODUCTFEED_FEED_TOKEN', null, null, $id_shop);
+
+            $allTokens_raw = $this->getAllTokensOfShop();
+
+            $allTokens = array();
+
+            foreach ($allTokens_raw as $allTokens_subraw) {
+                $allTokens[$allTokens_subraw['token']] = $allTokens_subraw['token'];
+            }
+        } else {
+            $tokenInConfig = Configuration::get('URBITPRODUCTFEED_FEED_TOKEN');
+            $allTokens[$tokenInConfig]=$tokenInConfig;
+        }
+
+        if ($token == '' || ($token != $tokenInConfig && !in_array($token, $allTokens))) {
+            die("<?xml version='1.0' encoding='utf-8'?><error>Invalid Token</error>");
         }
 
         header('Content-Type: application/json');
@@ -67,9 +90,9 @@ class UrbitProductfeedFeedModuleFrontController extends ModuleFrontController
      */
     protected function getAjaxOptionsForProductFilter()
     {
-        $categoryFilters = Tools::getValue(array('categoriesFromAjax'));
-        $tagFilters = Tools::getValue(array('tagsFromAjax'));
-        $minimalStockFilter = Tools::getValue(array('minimalStockFromAjax'));
+        $categoryFilters = Tools::getValue('categoriesFromAjax');
+        $tagFilters = Tools::getValue('tagsFromAjax');
+        $minimalStockFilter = Tools::getValue('minimalStockFromAjax');
 
         $optionsForProductMultiSelect = array();
 
@@ -141,10 +164,10 @@ class UrbitProductfeedFeedModuleFrontController extends ModuleFrontController
      */
     protected function getFilteredProductCollection()
     {
-        $categoryFilters = UrbitProductfeedFeed::getCategoryFilters();
-        $tagFilters = UrbitProductfeedFeed::getTagsFilters();
+        $categoryFilters = UrbitProductfeedFeed::getCategoryFilters()[0] != 'none' ? UrbitProductfeedFeed::getCategoryFilters() : null;
+        $tagFilters = UrbitProductfeedFeed::getTagsFilters()[0] != 'none' ? UrbitProductfeedFeed::getTagsFilters() : null;
         $minimalStockFilter = UrbitProductfeedFeed::getMinimalStockFilter();
-        $resultFilter = UrbitProductfeedFeed::getProductFilters();
+        $resultFilter = UrbitProductfeedFeed::getProductFilters()[0] != 'none' ?  UrbitProductfeedFeed::getProductFilters() : null;
 
         $products = ($resultFilter) ?
             $this->getProductsFilteredByResultFilter($resultFilter) :
@@ -184,7 +207,8 @@ class UrbitProductfeedFeedModuleFrontController extends ModuleFrontController
      */
     protected function getProductsFilteredByStandardFilters($categoryFilterValue, $tagFilterValue, $minimalStockFilterValue)
     {
-        return $products = UrbitProductfeedFeed::getFilteredProducts(
+
+      return $products = UrbitProductfeedFeed::getFilteredProducts(
             Context::getContext()->language->id,
             0,
             0,
@@ -194,5 +218,74 @@ class UrbitProductfeedFeedModuleFrontController extends ModuleFrontController
             $tagFilterValue,
             $minimalStockFilterValue
         );
+    }
+
+    /**
+     * Gets all token of a given shop
+     * @return array
+     */
+    public function getAllTokensOfShop()
+    {
+        $id_shop = $this->context->shop->id;
+        $id_shop_group = (int) $this->context->shop->id_shop_group;
+        $res = array();
+        $tokenGeneral = $this->getTokenValue($id_shop);
+
+        if ($tokenGeneral) {
+            $res[] = array(
+                'id_shop' => $id_shop,
+                'id_shop_group' => null,
+                'token' => $tokenGeneral,
+                'id_lang' => Configuration::get('PS_LANG_DEFAULT'),
+                'id_currency' => false
+            );
+        }
+
+        $shopLanguages = Language::getLanguages(true, $id_shop);
+        $shopCurrencies = Currency::getCurrenciesByIdShop($id_shop);
+
+        foreach ($shopLanguages as $currentLang) {
+            $idLang = $currentLang['id_lang'];
+
+            foreach ($shopCurrencies as $currentCurrency) {
+                $idCurrency = $currentCurrency['id_currency'];
+                $token = $this->getTokenValue($id_shop, $id_shop_group, $idCurrency, $idLang);
+
+                if ($token) {
+                    $res[] = array(
+                        'id_shop' => $id_shop,
+                        'id_shop_group' => $id_shop_group,
+                        'token' => $token,
+                        'id_lang' => $idLang,
+                        'id_currency' => $idCurrency
+                    );
+                }
+            }
+        }
+
+        return $res;
+    }
+
+    /**
+     * Get the configured token
+     * @param int $id_shop the shop context
+     * @param null $id_shop_group
+     * @param bool $id_currency (optional) the currency
+     * @param bool $id_lang (optional) the lang
+     * @return string
+     */
+    public function getTokenValue($id_shop, $id_shop_group = null, $id_currency = false, $id_lang = false)
+    {
+        $key = 'URBITPRODUCTFEED_FEED_TOKEN';
+
+        if ($id_currency && $id_lang) {
+            $key .= '_'.$id_currency.'_'.$id_lang;
+        }
+
+        if ($id_shop) {
+            return Configuration::get($key, null, $id_shop_group, $id_shop);
+        } else {
+            return Configuration::get($key);
+        }
     }
 }
