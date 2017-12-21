@@ -46,7 +46,6 @@ class UrbitProductfeedFeedModuleFrontController extends ModuleFrontController
         $token = Tools::getValue('token');
 
         if (version_compare(_PS_VERSION_, '1.5', '>') && Shop::isFeatureActive()) {
-
             $id_shop = $this->context->shop->id;
             $tokenInConfig = Configuration::get('URBITPRODUCTFEED_FEED_TOKEN', null, null, $id_shop);
 
@@ -208,7 +207,7 @@ class UrbitProductfeedFeedModuleFrontController extends ModuleFrontController
     protected function getProductsFilteredByStandardFilters($categoryFilterValue, $tagFilterValue, $minimalStockFilterValue)
     {
 
-      return $products = UrbitProductfeedFeed::getFilteredProducts(
+        return $products = UrbitProductfeedFeed::getFilteredProducts(
             Context::getContext()->language->id,
             0,
             0,

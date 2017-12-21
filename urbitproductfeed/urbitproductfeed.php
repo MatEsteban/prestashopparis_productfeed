@@ -47,7 +47,7 @@ class UrbitProductfeed extends Module
     {
         $this->name = 'urbitproductfeed';
         $this->tab = 'administration';
-        $this->version = '1.0.3.5';
+        $this->version = '1.0.3';
         $this->author = 'Urbit';
         $this->module_key = 'a28ee08818efc46aecb78bc6ef2c9b3c';
         $this->need_instance = 1;
@@ -865,7 +865,7 @@ If there is no selected filter parameter (categories or tags or the number of pr
             }
         }
 
-        if (!(bool)preg_match('/^[0-9]{0,13}$/', Tools::getValue('URBITPRODUCTFEED_MINIMAL_STOCK')))  {
+        if (!(bool)preg_match('/^[0-9]{0,13}$/', Tools::getValue('URBITPRODUCTFEED_MINIMAL_STOCK'))) {
             $this->context->controller->errors[] = $this->l('Add a Minimal stock');
         }
 
