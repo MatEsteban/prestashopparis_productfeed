@@ -298,7 +298,7 @@
             <button type="submit" value="1" name="submitProductfeedModule" class="btn btn-default">Save Token</button>
         </div>
         <div class="form-group">
-            <a href="/index.php?fc=module&module=urbitproductfeed&controller=feed&token={$input.token}" id="generate-token-button" class="btn btn-default">Get the feed</a>
+            <a href="/index.php?fc=module&module=urbitproductfeed&controller=feed&token={$input.token}" id="generate-token-button" class="btn btn-default" target="_blank">Get the feed</a>
         </div>
     {else}
         {$smarty.block.parent}

@@ -873,6 +873,10 @@ If there is no selected filter parameter (categories or tags or the number of pr
             $this->context->controller->errors[] = $this->l('Unable to validate an empty field');
         }
 
+        if (Tools::getValue('URBITPRODUCTFEED_FEED_TOKEN') == null) {
+            $this->context->controller->errors[] = $this->l('Unable to validate an empty field');
+        }
+
         if (empty($this->context->controller->errors)) {
                 return $this->displayConfirmation($this->l('Settings updated'));
         }
