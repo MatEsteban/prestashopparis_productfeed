@@ -283,23 +283,23 @@ class UrbitProductfeedFeed
         }
 
         $sql = 'SELECT p.*, product_shop.*, pl.* , m.`name` AS manufacturer_name, s.`name` AS supplier_name
-				FROM `' . _DB_PREFIX_ . 'product` p
-				' . Shop::addSqlAssociation('product', 'p') . '
-				LEFT JOIN `' . _DB_PREFIX_ . 'product_lang` pl ON (p.`id_product` = pl.`id_product` ' . Shop::addSqlRestrictionOnLang('pl') . ')
-				LEFT JOIN `' . _DB_PREFIX_ . 'manufacturer` m ON (m.`id_manufacturer` = p.`id_manufacturer`)
-				LEFT JOIN `' . _DB_PREFIX_ . 'supplier` s ON (s.`id_supplier` = p.`id_supplier`)' .
+                FROM `' . _DB_PREFIX_ . 'product` p
+                ' . Shop::addSqlAssociation('product', 'p') . '
+                LEFT JOIN `' . _DB_PREFIX_ . 'product_lang` pl ON (p.`id_product` = pl.`id_product` ' . Shop::addSqlRestrictionOnLang('pl') . ')
+                LEFT JOIN `' . _DB_PREFIX_ . 'manufacturer` m ON (m.`id_manufacturer` = p.`id_manufacturer`)
+                LEFT JOIN `' . _DB_PREFIX_ . 'supplier` s ON (s.`id_supplier` = p.`id_supplier`)' .
             ($categoriesArray ? 'LEFT JOIN `' . _DB_PREFIX_ . 'category_product` c ON (c.`id_product` = p.`id_product`)' : '') . '
-				WHERE pl.`id_lang` = ' . (int)$id_lang .
+                WHERE pl.`id_lang` = ' . (int)$id_lang .
             ($minimalStock ?
                 ' AND (SELECT count(id_stock_available) FROM `' . _DB_PREFIX_ . 'stock_available` st
                     WHERE (st.`id_product` = p.`id_product`
-                            AND st.`quantity` >= '. $minimalStock . '
+                            AND st.`quantity` >= '. pSQL($minimalStock) . '
                             AND (SELECT count(*) from `' . _DB_PREFIX_ . 'stock_available` stock
                                     WHERE stock.`id_product` = p.`id_product`
                             ) = 1
                     ) OR (
                         st.`id_product` = p.`id_product`
-                        AND st.`quantity` >= '. $minimalStock . '
+                        AND st.`quantity` >= '. pSQL($minimalStock) . '
                         AND st.`id_product_attribute` != 0
                     ) > 0)' : ''
             ) .
@@ -312,10 +312,10 @@ class UrbitProductfeedFeed
                 AND tg.`name` in ("' . implode('","', $tagsArray) . '")) > 0' : '') .
             ($front ? ' AND product_shop.`visibility` IN ("both", "catalog")' : '') .
             ($only_active ? ' AND product_shop.`active` = 1' : '') . '
-				ORDER BY ' . (isset($order_by_prefix) ? pSQL($order_by_prefix) . '.' : '') . '`' . pSQL($order_by) . '` ' . pSQL($order_way) .
+                ORDER BY ' . (isset($order_by_prefix) ? pSQL($order_by_prefix) . '.' : '') . '`' . pSQL($order_by) . '` ' . pSQL($order_way) .
             ($limit > 0 ? ' LIMIT ' . (int)$start . ',' . (int)$limit : '')
         ;
-        
+
         $rq = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
 
         if ($order_by == 'price') {

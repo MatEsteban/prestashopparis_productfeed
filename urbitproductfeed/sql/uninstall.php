@@ -14,9 +14,9 @@
  * @copyright 2015-2017 Urb-it SA
  * @license  http://www.gnu.org/licenses/
  */
- 
+
 $sql = array(
-    'DROP TABLE `'._DB_PREFIX_.'urbitproductfeed`'
+    'DROP TABLE IF EXISTS `'._DB_PREFIX_.'urbitproductfeed`'
 );
 
 foreach ($sql as $query) {

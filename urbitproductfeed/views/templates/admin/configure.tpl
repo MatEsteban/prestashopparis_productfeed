@@ -75,7 +75,6 @@ img{
           <br>
             <div class="image-wrapper">
              <img src="{$urbitproductfeed_img_path|escape:'html':'utf-8'}Rotation.png">
-             {$dhl_img_path|escape:'htmlall':'UTF-8'}
             </div>
         </div>
         <br>
