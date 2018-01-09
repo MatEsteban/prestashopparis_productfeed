@@ -51,7 +51,6 @@ class UrbitProductfeed extends Module
         $this->author = 'Urbit';
         $this->module_key = 'a28ee08818efc46aecb78bc6ef2c9b3c';
         $this->need_instance = 1;
-        $this->controllers = 'FeedModule';
 
         $this->fields = array(
             'factory' => new UrbitProductfeedFieldsFactory(),

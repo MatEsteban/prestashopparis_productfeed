@@ -132,7 +132,7 @@ img{
       </div>
         <div id="account" class="tab-pane {if $active == 'account'}active{/if}">
           <div class="form-group" data-tab-id="account">
-            {$config}
+              {$config}
         </div>
     </div>
   </div>
