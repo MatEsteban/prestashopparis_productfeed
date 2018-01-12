@@ -477,9 +477,11 @@ class UrbitProductfeed extends Module
 
     protected function generateFeedToken()
     {
-        return version_compare(_PS_VERSION_, "1.7", "<") ?
-            Tools::encrypt($this->name):
-            Tools::hash(mt_rand(0, PHP_INT_MAX - 1) . Tools::getToken(false));
+        if (version_compare(_PS_VERSION_, "1.7", "<")) {
+             return Tools::encrypt($this->name);
+        } else {
+            return Tools::hash($this->name);
+        }
     }
 
     protected function getFeedTokenFromConfig()
